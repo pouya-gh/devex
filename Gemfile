@@ -55,6 +55,9 @@ group :test, :development do
 
   # use pry as rails console
   gem "pry-rails", "~> 0.3.2"
+
+  # improve rails errors page
+  gem "better_errors", "~> 1.1.0"
 end
 
 # Use ActiveModel has_secure_password
