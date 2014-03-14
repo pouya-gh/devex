@@ -52,6 +52,9 @@ group :test, :development do
 
   # installing capybara for browser integration
   gem "capybara", "~> 2.2.1"
+
+  # use pry as rails console
+  gem "pry-rails", "~> 0.3.2"
 end
 
 # Use ActiveModel has_secure_password
