@@ -61,6 +61,8 @@ group :test, :development do
 
   # improve rails errors page
   gem "better_errors", "~> 1.1.0"
+
+  gem "terminal-notifier-guard", "~> 1.5.3"
 end
 
 # Use ActiveModel has_secure_password
