@@ -1,3 +1,9 @@
+# encoding: utf-8
+
 class User < ActiveRecord::Base
   has_secure_password
+
+  VALID_NAME_REGEX = /\A[A-Za-zا-ی0-9۰-۹\s]+\z/
+  validates :first_name, presence: true, length: { minimum: 3, maximum: 30 },
+            format: { with: VALID_NAME_REGEX }
 end

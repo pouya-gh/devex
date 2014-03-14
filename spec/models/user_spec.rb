@@ -1,5 +1,38 @@
+# encoding: utf-8
+
 require 'spec_helper'
 
+shared_context 'name' do
+  context 'when nil' do
+    it "is invalid" do
+      expect(build(:user, arg.to_sym => nil)).to be_invalid
+    end
+  end
+
+  context 'when too short' do
+    it "is invalid" do
+      expect(build(:user, arg.to_sym => 'aa')).to be_invalid
+    end
+  end
+
+  context 'when too long' do
+    it "is invalid" do
+      expect(build(:user, arg.to_sym => 'a' * 31)).to be_invalid
+    end
+  end
+
+  it "contains only permitted characters" do
+    invalid_names = ['@ref', 'na$im', '*علی*']
+    invalid_names.each do |invalud_name|
+      expect(build(:user, first_name: invalud_name)).to be_invalid
+    end
+  end
+end
+
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "first_name" do
+    include_context 'name' do 
+      let(:arg) { :first_name }
+    end
+  end
 end
