@@ -27,6 +27,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# use figaro for application configuration management
+gem "figaro", "~> 0.7.0"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -52,6 +55,12 @@ group :test, :development do
 
   # installing capybara for browser integration
   gem "capybara", "~> 2.2.1"
+
+  # use pry as rails console
+  gem "pry-rails", "~> 0.3.2"
+
+  # improve rails errors page
+  gem "better_errors", "~> 1.1.0"
 end
 
 # Use ActiveModel has_secure_password
