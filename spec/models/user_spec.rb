@@ -41,4 +41,14 @@ describe User do
       let(:arg) { :last_name }
     end
   end
+
+  describe "email" do
+    it "contains only permitted characters" do
+      invalid_emails = ['arefaslani.com', '@arefaslani', 'arefaslani@gmail',
+                        'عارف@gmail.com', 'aref\naslani@gmail.com']
+      invalid_emails.each do |invalid_email|
+        expect(build(:user, email: invalid_email)).to be_invalid
+      end
+    end
+  end
 end
