@@ -35,4 +35,10 @@ describe User do
       let(:arg) { :first_name }
     end
   end
+
+  describe "last_name" do
+    include_context 'name' do
+      let(:arg) { :last_name }
+    end
+  end
 end
