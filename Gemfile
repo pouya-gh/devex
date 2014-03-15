@@ -61,10 +61,12 @@ group :test, :development do
 
   # improve rails errors page
   gem "better_errors", "~> 1.1.0"
+
+  gem "terminal-notifier-guard", "~> 1.5.3"
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
