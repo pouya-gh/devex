@@ -51,4 +51,18 @@ describe User do
       end
     end
   end
+
+  describe "password" do
+    context 'when nil' do
+      it "is invalid" do
+        expect(build(:user, password: nil)).to be_invalid
+      end
+    end
+
+    context "when doesn't match confirmation" do
+      it "is invalid" do
+        expect(build(:user, password: '12345678', password_confirmation: '12345679')).to be_invalid
+      end
+    end
+  end
 end
