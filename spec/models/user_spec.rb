@@ -30,6 +30,10 @@ shared_context 'name' do
 end
 
 describe User do
+  it "has a valid factory" do
+    expect(build(:user)).to be_valid
+  end
+
   describe "first_name" do
     include_context 'name' do 
       let(:arg) { :first_name }
