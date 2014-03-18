@@ -1,0 +1,10 @@
+fa:
+  user:
+    first_name: 'نام'
+    last_name: 'نام خانوادگی'
+    email: 'ایمیل'
+    password: 'کلمه عبور'
+    password_confirmation: 'تکرار کلمه عبور'
+
+  submit:
+    user: 'ثبت نام'
