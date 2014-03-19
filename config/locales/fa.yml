@@ -6,5 +6,12 @@ fa:
     password: 'کلمه عبور'
     password_confirmation: 'تکرار کلمه عبور'
 
-  submit:
-    user: 'ثبت نام'
+  register:
+    button: 'ثبت نام'
+    fail: 'اطلاعات وارد شده صحیح نیست'
+    success: 'خوش آمدید'
+
+  activerecord:
+    errors:
+      messages:
+       record_invalid: 'داده صحیح نیست'
