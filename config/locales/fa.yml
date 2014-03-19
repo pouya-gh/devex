@@ -11,6 +11,11 @@ fa:
     fail: 'اطلاعات وارد شده صحیح نیست'
     success: 'خوش آمدید'
 
+  sign_in:
+    button: 'ورود'
+    fail: 'اطلاعات وارد شده صحیح نیست'
+    success: 'خوش آمدید'
+
   activerecord:
     errors:
       messages:
