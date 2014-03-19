@@ -1,0 +1,28 @@
+<%= form_for(@user, html: { role: 'form', class: 'form-horizontal' }) do |f| %>
+  <div class="form_group">
+    <%= f.label :first_name, I18n.translate('user.first_name'), { class: 'col-md-2' } %>
+    <%= f.text_field :first_name, { class: 'form-control', placeholder: I18n.translate('user.first_name') } %>
+  </div>
+
+  <div class="form_group">
+    <%= f.label :last_name, I18n.translate('user.last_name'), { class: 'col-md-2' } %>
+    <%= f.text_field :last_name, { class: 'form-control', placeholder: I18n.translate('user.last_name') } %>
+  </div>
+
+  <div class="form_group">
+    <%= f.label :email, I18n.translate('user.email'), { class: 'col-md-2' } %>
+    <%= f.text_field :email, { class: 'form-control', placeholder: I18n.translate('user.email') } %>
+  </div>
+
+  <div class="form_group">
+    <%= f.label :password, I18n.translate('user.password'), { class: 'col-md-2' } %>
+    <%= f.password_field :password, { class: 'form-control', placeholder: I18n.translate('user.password') } %>
+  </div>
+
+  <div class="form_group">
+    <%= f.label :password_confirmation, I18n.translate('user.password_confirmation'), { class: 'col-md-2' } %>
+    <%= f.password_field :password_confirmation, { class: 'form-control', placeholder: I18n.translate('user.password_confirmation') } %>
+  </div>
+  
+  <%= f.submit I18n.translate('register.button'), { class: 'btn btn-primary' } %>
+<% end %>
