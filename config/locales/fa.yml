@@ -18,7 +18,32 @@ fa:
     success: 'خوش آمدید'
     not_member: 'عضو نیستید؟ لطفا عضو شوید'
 
+  format:
+    user:
+      first_name: 'تنها می تواند شامل اعداد و حروف فارسی و لاتین باشد'
+      last_name: 'تنها می تواند شامل اعداد و حروف فارسی و لاتین باشد'
+
   activerecord:
     errors:
+      models:
+        user:
+          attributes:
+            first_name:
+              blank: 'نام نمی تواند خالی باشد'
+              too_long: 'خیلی طولانی است(حداکثر %{count} کاراکتر)'
+              too_short: 'خیلی کوتاه است(حداقل %{count} کاراکتر)'
+              invalid: 'فرمت وارد شده صحیح نمی باشد'
+            last_name:
+              blank: 'نام خانوادگی نمی تواند خالی باشد'
+              too_long: 'خیلی طولانی است(حداکثر %{count} کاراکتر)'
+              too_short: 'خیلی کوتاه است(حداقل %{count} کاراکتر)'
+              invalid: 'فرمت وارد شده صحیح نمی باشد'
+            email:
+              invalid: 'ایمیل وارد شده صحیح نیست'
+              taken: 'کاربری با این ایمیل قبلا ثبت نام کرده است'
+            password:
+              blank: 'کلمه عبور نمی تواند خالی باشد'
+            password_confirmation:
+              confirmation: 'با کلمه عبور مطابقت ندارد'
       messages:
        record_invalid: 'داده صحیح نیست'
