@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140319102440) do
     t.string   "auth_token"
   end
 
-  add_index "users", ["auth_token"], name: "index_users_on_auth_token"
-  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
             format: { with: VALID_NAME_REGEX }
 
   VALID_EMAIL_REGEX = /\A([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\z/
-  validates :email, format: { with: VALID_EMAIL_REGEX }
+  validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
 
   def regenerate_auth_token
     token_for(:auth_token)
