@@ -7,9 +7,16 @@ fa:
     password_confirmation: 'تکرار کلمه عبور'
 
   register:
-    button: 'ثبت نام'
+    text: 'ثبت نام'
     fail: 'اطلاعات وارد شده صحیح نیست'
     success: 'خوش آمدید'
+    member: 'هم اکنون عضو هستید؟ لطفا وارد شوید'
+
+  sign_in:
+    text: 'ورود'
+    fail: 'اطلاعات وارد شده صحیح نیست'
+    success: 'خوش آمدید'
+    not_member: 'عضو نیستید؟ لطفا عضو شوید'
 
   activerecord:
     errors:
