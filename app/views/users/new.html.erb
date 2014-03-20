@@ -24,6 +24,6 @@
     <%= f.password_field :password_confirmation, { class: 'form-control', placeholder: I18n.translate('user.password_confirmation') } %>
   </div>
   
-  <%= f.submit I18n.translate('register.button'), { class: 'btn btn-primary' } %>
+  <%= f.submit I18n.translate('register.text'), { class: 'btn btn-primary' } %>
   <%= link_to I18n.translate('register.member'), sign_in_path %>
 <% end %>

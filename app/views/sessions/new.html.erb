@@ -9,6 +9,6 @@
     <%= f.password_field :password, { placeholder: I18n.translate('user.password'), class: 'form-control' } %>
   </div>
 
-  <%= f.submit I18n.translate('sign_in.button'), { class: 'btn btn-primary' } %>
+  <%= f.submit I18n.translate('sign_in.text'), { class: 'btn btn-primary' } %>
   <%= link_to I18n.translate('sign_in.not_member'), sign_up_path %>
 <% end %>
