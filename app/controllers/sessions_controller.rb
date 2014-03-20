@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       sign_in user
       flash[:success] = I18n.translate('sign_in.success')
-      redirect_to user
+      redirect_to params[:redirect_url] || user
     else
       flash.now[:danger] = I18n.translate('sign_in.fail')
       render :new

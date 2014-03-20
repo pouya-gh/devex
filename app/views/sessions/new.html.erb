@@ -1,4 +1,4 @@
-<%= form_for :session, { url: sessions_path, html: { role: 'form' }} do |f| %>
+<%= form_for :session, { url: sessions_path(redirect_url: params[:redirect_url]), html: { role: 'form' }} do |f| %>
   <div class="form-group">
     <%= f.label :email, I18n.translate('user.email') %>
     <%= f.text_field :email, { placeholder: I18n.translate('user.email'), class: 'form-control' } %>
