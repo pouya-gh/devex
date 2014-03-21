@@ -20,6 +20,7 @@ fa:
 
   authorization:
     required: 'برای مشاهده این صفحه باید وارد شوید'
+    access_denied: 'شما اجازه مشاهده این صفحه را ندارید'
 
   format:
     user:
