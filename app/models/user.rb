@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     write_attribute(field.to_sym, generate_token)
   end
 
+  def last_posts
+    self.posts.last(5).reverse
+  end
+
   private
 
   def generate_token

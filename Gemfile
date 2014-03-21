@@ -36,9 +36,6 @@ gem 'cancan', '~> 1.6.10'
 # use redcarpet for parsing markdown
 gem 'redcarpet', '~> 3.1.1'
 
-# use rouge for syntax highlighting
-gem 'rouge', '~> 1.3.3'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
