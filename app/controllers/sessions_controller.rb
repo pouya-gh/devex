@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :check_signed_in, except: [:destroy]
+
   def new
     
   end
@@ -18,5 +20,11 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
     redirect_to root_path
+  end
+
+  private
+
+  def check_signed_in
+    redirect_to current_user if signed_in?
   end
 end
