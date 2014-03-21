@@ -141,6 +141,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    redcarpet (3.1.1)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -217,6 +218,7 @@ DEPENDENCIES
   jquery-rails
   pry-rails (~> 0.3.2)
   rails (= 4.0.2)
+  redcarpet (~> 3.1.1)
   rspec-rails (~> 2.14.1)
   sass-rails (~> 4.0.0)
   sdoc
