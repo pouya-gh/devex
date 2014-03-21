@@ -6,6 +6,14 @@ fa:
     password: 'کلمه عبور'
     password_confirmation: 'تکرار کلمه عبور'
 
+  post:
+    submit:
+      text: 'افزودن'
+      success: 'پست مورد نظر با موفقیت ایجاد شد'
+      fail: 'مشکلی در ایجاد پست بوجود آمده است'
+    title: 'عنوان'
+    body: 'بدنه'
+
   register:
     text: 'ثبت نام'
     fail: 'اطلاعات وارد شده صحیح نیست'

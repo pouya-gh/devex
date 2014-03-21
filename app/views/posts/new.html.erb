@@ -1,0 +1,13 @@
+<%= form_for(@post, html: { role: 'form' }) do |f| %>
+  <div class="form-group <%= "has-error" if @post.errors.include? :title %>">
+    <%= f.label :title, I18n.translate('post.title') %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group <%= "has-error" if @post.errors.include? :body %>">
+    <%= f.label :body, I18n.translate('post.body') %>
+    <%= f.text_area :body, class: 'form-control', rows: 10 %>
+  </div>
+
+  <%= f.submit I18n.translate('post.submit.text'), class: 'btn btn-primary' %>
+<% end %>
