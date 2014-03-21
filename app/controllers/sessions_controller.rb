@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :check_signed_in, except: [:destroy]
+
   def new
     
   end
@@ -8,7 +10,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       sign_in user
       flash[:success] = I18n.translate('sign_in.success')
-      redirect_to user
+      redirect_to params[:redirect_url] || user
     else
       flash.now[:danger] = I18n.translate('sign_in.fail')
       render :new
@@ -18,5 +20,11 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
     redirect_to root_path
+  end
+
+  private
+
+  def check_signed_in
+    redirect_to current_user if signed_in?
   end
 end
