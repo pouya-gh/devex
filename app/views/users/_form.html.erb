@@ -5,7 +5,7 @@
     <span class="help-block">
       <p><%= I18n.translate('format.user.first_name') %></p>
     </span>
-    <%= render partial: 'form_errors', locals: { user: @user, key: :first_name } %>
+    <%= render partial: 'shared/form_errors', locals: { model: @user, key: :first_name } %>
   </div>
 
   <div class="form_group <%= "has-error" if @user.errors.include? :last_name %>">
@@ -14,25 +14,25 @@
     <span class="help-block">
       <p><%= I18n.translate('format.user.last_name') %></p>
     </span>
-    <%= render partial: 'form_errors', locals: { user: @user, key: :last_name } %>
+    <%= render partial: 'shared/form_errors', locals: { model: @user, key: :last_name } %>
   </div>
 
   <div class="form_group <%= "has-error" if @user.errors.include? :email %>">
     <%= f.label :email, I18n.translate('user.email'), { class: 'col-md-2' } %>
     <%= f.text_field :email, { class: 'form-control', placeholder: I18n.translate('user.email') } %>
-    <%= render partial: 'form_errors', locals: { user: @user, key: :email } %>
+    <%= render partial: 'shared/form_errors', locals: { model: @user, key: :email } %>
   </div>
 
   <div class="form_group <%= "has-error" if @user.errors.include? :password %>">
     <%= f.label :password, I18n.translate('user.password'), { class: 'col-md-2' } %>
     <%= f.password_field :password, { class: 'form-control', placeholder: I18n.translate('user.password') } %>
-    <%= render partial: 'form_errors', locals: { user: @user, key: :password } %>
+    <%= render partial: 'shared/form_errors', locals: { model: @user, key: :password } %>
   </div>
 
   <div class="form_group <%= "has-error" if @user.errors.include? :password_confirmation %>">
     <%= f.label :password_confirmation, I18n.translate('user.password_confirmation'), { class: 'col-md-2' } %>
     <%= f.password_field :password_confirmation, { class: 'form-control', placeholder: I18n.translate('user.password_confirmation') } %>
-    <%= render partial: 'form_errors', locals: { user: @user, key: :password_confirmation } %>
+    <%= render partial: 'shared/form_errors', locals: { model: @user, key: :password_confirmation } %>
   </div>
   
   <%= f.submit I18n.translate('register.text'), { class: 'btn btn-primary' } %>

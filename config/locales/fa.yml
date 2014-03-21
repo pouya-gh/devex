@@ -57,5 +57,11 @@ fa:
               blank: 'کلمه عبور نمی تواند خالی باشد'
             password_confirmation:
               confirmation: 'با کلمه عبور مطابقت ندارد'
+        post:
+          attributes:
+            title:
+              blank: 'عنوان نمی تواند خالی باشد'
+            body:
+              blank: 'بدنه نمی تواند خالی باشد'
       messages:
        record_invalid: 'داده صحیح نیست'
