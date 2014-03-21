@@ -14,6 +14,7 @@ fa:
     title: 'عنوان'
     body: 'بدنه'
     lasts: 'آخرین پست های ارسالی'
+    not_authorized: 'شما اجازه مشاهده این صفحه را ندارید'
 
   register:
     text: 'ثبت نام'

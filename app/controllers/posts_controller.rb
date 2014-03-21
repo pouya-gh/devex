@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :check_admin, except: [:index]
+
   def new
     @post = current_user.posts.new
   end
@@ -19,5 +21,14 @@ class PostsController < ApplicationController
 
   def post_params
     params.require('post').permit(:title, :body)
+  end
+
+  private
+
+  def check_admin
+    unless current_user.admin?
+      flash[:danger] = I18n.translate('post.not_authorized')
+      redirect_to current_user
+    end
   end
 end
