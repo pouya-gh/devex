@@ -1,20 +1,29 @@
 fa:
+  buttons:
+    delete: 'حذف'
+    edit: 'ویرایش'
+    view: 'مشاهده'
+
   user:
     first_name: 'نام'
     last_name: 'نام خانوادگی'
     email: 'ایمیل'
     password: 'کلمه عبور'
     password_confirmation: 'تکرار کلمه عبور'
+    text: 'کاربران'
 
   post:
     submit:
       text: 'افزودن'
       success: 'پست مورد نظر با موفقیت ایجاد شد'
       fail: 'مشکلی در ایجاد پست بوجود آمده است'
+    delete:
+      success: 'پست با موفقیت حذف شد'
     title: 'عنوان'
     body: 'بدنه'
     lasts: 'آخرین پست های ارسالی'
     not_authorized: 'شما اجازه مشاهده این صفحه را ندارید'
+    text: 'پست ها'
 
   register:
     text: 'ثبت نام'

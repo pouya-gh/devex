@@ -17,6 +17,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    Post.find(params[:id]).destroy!
+    flash[:success] = I18n.translate('post.delete.success')
+    redirect_to current_user
+  end
+
   private
 
   def post_params

@@ -1,1 +1,7 @@
-<%= render partial: 'admin/last_posts', locals: { user: current_user } %>
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= I18n.translate('user.text') %></h1>
+    <%= render partial: 'admin/last_posts', locals: { user: current_user } %>
+  </div>
+  <div class="col-sm-6"><h1><%= I18n.translate('post.text') %></h1></div>
+</div>
