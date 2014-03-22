@@ -18,6 +18,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :published, I18n.translate('post.publish') %>
+    <%= f.select :published, ['true', 'false'], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :pro %>
     <%= f.select :pro, ['true', 'false'], class: 'form-control' %>
   </div>

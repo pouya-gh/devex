@@ -3,6 +3,11 @@
     <header>
       <h2><%= post.title %></h2>
       <span class="buttons">
+        <% unless post.published? %>
+          <label class="btn btn-success btn-xs">
+            <%= I18n.translate('post.not_published') %>
+          </label>
+        <% end %>
         <%= link_to I18n.translate('buttons.edit'), edit_post_path(post),
                     class: 'btn btn-warning btn-xs' %>
         <%= link_to I18n.translate('buttons.delete'), post_path(post), 

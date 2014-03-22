@@ -24,6 +24,8 @@ fa:
     title: 'عنوان'
     body: 'بدنه'
     digest: 'چکیده'
+    publish: 'انتشار'
+    not_published: 'منتشر نشده'
     lasts: 'آخرین پست های ارسالی'
     not_authorized: 'شما اجازه مشاهده این صفحه را ندارید'
     text: 'پست ها'
@@ -77,5 +79,7 @@ fa:
               blank: 'عنوان نمی تواند خالی باشد'
             body:
               blank: 'بدنه نمی تواند خالی باشد'
+            digest:
+              blank: 'چکیده نمی تواند خالی باشد'
       messages:
        record_invalid: 'داده صحیح نیست'

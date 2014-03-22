@@ -50,3 +50,7 @@ h3 {
   left: 0;
   top: 0;
 }
+
+.admin-section .buttons label {
+  cursor: default;
+}
