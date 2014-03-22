@@ -17,6 +17,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    flash[:success] = I18n.translate('post.update.success')
+    redirect_to current_user
+  end
+
   def destroy
     Post.find(params[:id]).destroy!
     flash[:success] = I18n.translate('post.delete.success')
