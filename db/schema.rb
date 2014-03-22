@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321212959) do
+ActiveRecord::Schema.define(version: 20140322204656) do
 
   create_table "posts", force: true do |t|
     t.integer  "user_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140321212959) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "pro",        default: false
+    t.string   "digest"
   end
 
   add_index "posts", ["id", "user_id"], name: "index_posts_on_id_and_user_id", unique: true

@@ -3,6 +3,7 @@ require 'rouge/plugins/redcarpet'
 
 module ApplicationHelper
   def markdown(text)
+    text ||= ""
     render_options = { filter_html: true, hard_wrap: true, prettify: true }
     renderer = HTMLRenderer.new(render_options)
 
