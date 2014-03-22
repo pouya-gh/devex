@@ -1,7 +1,14 @@
 <% user.last_posts.each do |post| %>
-  <h2><%= post.title %></h2>
-  <%= link_to I18n.translate('buttons.delete'), post_path(post), 
-              method: 'delete', class: 'btn btn-danger btn-xs' %>
-  <%= link_to I18n.translate('buttons.edit'), edit_post_path(post),
-              class: 'btn btn-warning btn-xs' %>
+  <article>
+    <header>
+      <h2><%= post.title %></h2>
+      <span class="buttons">
+        <%= link_to I18n.translate('buttons.edit'), edit_post_path(post),
+                    class: 'btn btn-warning btn-xs' %>
+        <%= link_to I18n.translate('buttons.delete'), post_path(post), 
+                    method: 'delete', class: 'btn btn-danger btn-xs' %>
+      </span>
+    </header>
+    <p><%= markdown(post.body) %></p>
+  </article>
 <% end %>
