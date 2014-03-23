@@ -1,3 +1,56 @@
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-family:'B bardiya',tahoma;
+}
+
 input {
   margin-bottom: 10px !important;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.admin-section > header {
+  margin: 5px;
+  position: relative;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #CFCFCF;
+}
+
+.admin-section > header a.add-post {
+  position: absolute;
+  left: 0;
+  /*top: 25%;*/
+  top: 0;
+}
+
+.admin-section article {
+  margin: 5px;
+  padding: 3px 0;
+  position: relative;
+  border-bottom: 1px dotted #CFCFCF;
+}
+
+.admin-section article:last-child {
+  border-bottom: 0;
+}
+
+.admin-section .buttons {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.admin-section .buttons label {
+  cursor: default;
 }

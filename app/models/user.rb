@@ -3,6 +3,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_many :posts
+
   before_save :regenerate_auth_token
 
   # first and last name should contain only numbers and letters and whitespaces
@@ -22,6 +24,10 @@ class User < ActiveRecord::Base
 
   def token_for(field)
     write_attribute(field.to_sym, generate_token)
+  end
+
+  def last_posts
+    self.posts.last(5).reverse
   end
 
   private

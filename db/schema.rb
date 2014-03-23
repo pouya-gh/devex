@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319102440) do
+ActiveRecord::Schema.define(version: 20140322205454) do
+
+  create_table "posts", force: true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "pro",        default: false
+    t.string   "digest"
+    t.boolean  "published",  default: false
+  end
+
+  add_index "posts", ["id", "user_id"], name: "index_posts_on_id_and_user_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -21,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140319102440) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "auth_token"
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true

@@ -1,10 +1,34 @@
 fa:
+  buttons:
+    delete: 'حذف'
+    edit: 'ویرایش'
+    view: 'مشاهده'
+
   user:
     first_name: 'نام'
     last_name: 'نام خانوادگی'
     email: 'ایمیل'
     password: 'کلمه عبور'
     password_confirmation: 'تکرار کلمه عبور'
+    text: 'کاربران'
+
+  post:
+    submit:
+      text: 'افزودن'
+      success: 'پست مورد نظر با موفقیت ایجاد شد'
+      fail: 'مشکلی در ایجاد پست بوجود آمده است'
+    delete:
+      success: 'پست با موفقیت حذف شد'
+    update:
+      success: 'پست با موفقیت ویرایش شد'
+    title: 'عنوان'
+    body: 'بدنه'
+    digest: 'چکیده'
+    publish: 'انتشار'
+    not_published: 'منتشر نشده'
+    lasts: 'آخرین پست های ارسالی'
+    not_authorized: 'شما اجازه مشاهده این صفحه را ندارید'
+    text: 'پست ها'
 
   register:
     text: 'ثبت نام'
@@ -49,5 +73,13 @@ fa:
               blank: 'کلمه عبور نمی تواند خالی باشد'
             password_confirmation:
               confirmation: 'با کلمه عبور مطابقت ندارد'
+        post:
+          attributes:
+            title:
+              blank: 'عنوان نمی تواند خالی باشد'
+            body:
+              blank: 'بدنه نمی تواند خالی باشد'
+            digest:
+              blank: 'چکیده نمی تواند خالی باشد'
       messages:
        record_invalid: 'داده صحیح نیست'
