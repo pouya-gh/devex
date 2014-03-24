@@ -19,18 +19,17 @@ class User < ActiveRecord::Base
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
 
   def regenerate_auth_token
-    token_for(:auth_token)
+    # use update_columns to skip validations and callbacks
+    update_columns(auth_token: generate_token)
   end
 
-  def token_for(field)
-    write_attribute(field.to_sym, generate_token)
-  end
+  # def token_for(field)
+  #   write_attribute(field.to_sym, generate_token)
+  # end
 
   def last_posts
     self.posts.last(5).reverse
   end
-
-  private
 
   def generate_token
     salt = 'asdwrewqsafaaewvkmnp(872134n1231%^23123basdklm)(u89u123$234alklkmasfbb*^T^t213'
