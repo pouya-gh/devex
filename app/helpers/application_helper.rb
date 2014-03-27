@@ -2,6 +2,12 @@
 require 'rouge/plugins/redcarpet'
 
 module ApplicationHelper
+  def gravatar_for(user, options = {size: 80})
+    email_hash = Digest::MD5.hexdigest(user.email)
+    url = "https://gravatar.com/avatar/#{email_hash}?size=#{options[:size]}"
+    image_tag(url, alt: "#{user.first_name} #{user.last_name}")
+  end
+
   def markdown(text)
     text ||= ""
     render_options = { filter_html: true, hard_wrap: true, prettify: true }
