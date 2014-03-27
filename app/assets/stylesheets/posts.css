@@ -3,11 +3,6 @@ body, h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-.container {
-  width: 700px;
-  margin: 5px auto;
-}
-
 .post img {
   border-radius: 100%;
   border: 2px solid #619CDE;
@@ -44,7 +39,6 @@ body, h1, h2, h3, h4, h5, h6 {
 
 .post hr {
   border: 1px dotted #C0C0C0;
-  margin-bottom: 50px;
 }
 
 body .post:last-of-type hr {

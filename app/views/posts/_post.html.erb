@@ -2,7 +2,10 @@
   <header>
     <%= gravatar_for(post.user) %>
     <h2><%= post.title %></h2>
-    <strong>نوشته شده در <%= time_ago_in_words(post.created_at) %> پیش توسط <%= "#{post.user.first_name} #{post.user.last_name}" %></strong>
+    <strong>
+      نوشته شده در <%= time_ago_in_words(post.created_at) %> پیش 
+      توسط <%= "#{post.user.first_name} #{post.user.last_name}" %>
+    </strong>
   </header>
   <div class="clear"></div>
   <p>
