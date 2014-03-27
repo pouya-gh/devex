@@ -51,6 +51,42 @@ fa:
       first_name: 'تنها می تواند شامل اعداد و حروف فارسی و لاتین باشد'
       last_name: 'تنها می تواند شامل اعداد و حروف فارسی و لاتین باشد'
 
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 'حدود یک ساعت'
+        other: 'حدود %{count} ساعت'
+      about_x_months:
+        one: 'حدود یک ماه'
+        other: 'حدود %{count} ماه'
+      about_x_years:
+        one: 'حدود یک سال'
+        other: 'حدود %{count} سال'
+      almost_x_years:
+        one: 'حدود یک سال'
+        other: 'حدود %{count} سال'
+      half_a_minute: 'نیم دقیقه'
+      less_than_x_minutes:
+        one: 'کمتر از یک دقیقه'
+        other: 'کمتر از %{count} دقیقه'
+      less_than_x_seconds:
+        one: 'کمتر از یک ثانیه'
+        other: 'کمتر از %{count} ثانیه'
+      over_x_years:
+        one: 'بیش از یک سال'
+        other: 'بیش از %{count} سال'
+      x_days:
+        one: 'یک روز'
+        other: '%{count} روز'
+      x_minutes:
+        one: 'یک دقیقه'
+        other: '%{count} دقیقه'
+      x_months:
+        one: 'یک ماه'
+        other: '%{count} ماه'
+      x_seconds:
+        one: 'یک ثانیه'
+        other: '%{count} ثانیه'
   activerecord:
     errors:
       models:

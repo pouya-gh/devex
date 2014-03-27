@@ -1,0 +1,12 @@
+<article class="post">
+  <header>
+    <img src="http://gravatar.com/avatar/dd45c3d279959bed4fc7ff575c7c885e" alt="<%= "#{post.user.first_name} #{post.user.last_name}" %>">
+    <h2><%= post.title %></h2>
+    <strong>نوشته شده در <%= time_ago_in_words(post.created_at) %> پیش توسط <%= "#{post.user.first_name} #{post.user.last_name}" %></strong>
+  </header>
+  <div class="clear"></div>
+  <p>
+    <%= post.body %>
+  </p>
+  <hr>
+</article>

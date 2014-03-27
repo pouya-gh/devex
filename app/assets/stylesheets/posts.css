@@ -1,0 +1,56 @@
+body, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 700px;
+  margin: 5px auto;
+}
+
+.post img {
+  border-radius: 100%;
+  border: 2px solid #619CDE;
+  float: right;
+}
+
+.post h2 {
+  position: relative;
+  top: 20px;
+  right: 5px;
+  /*font-family: 'Revalia', cursive;*/
+  color: #3A3A3A;
+}
+
+.post strong {
+  position: relative;
+  top: 20px;
+  right: 5px;
+  /*font-family: 'Averia Sans Libre', cursive;*/
+  color: #B4B4B4;
+  font-size: 12px;
+}
+
+.post p {
+  /*font-family: 'Averia Sans Libre', cursive;*/
+  text-align: justify;
+  text-indent: 50px;
+}
+
+.post strong > a {
+  text-decoration: none;
+  color: #5CA8FF;
+}
+
+.post hr {
+  border: 1px dotted #C0C0C0;
+  margin-bottom: 50px;
+}
+
+body .post:last-of-type hr {
+  border: 0;
+}
+
+.clear {
+  clear: both;
+}
