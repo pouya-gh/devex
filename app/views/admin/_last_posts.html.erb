@@ -1,3 +1,6 @@
+<% if user.last_posts.empty? %>
+  پستی برای نمایش وجود ندارد.
+<% end %>
 <% user.last_posts.each do |post| %>
   <article>
     <header>
