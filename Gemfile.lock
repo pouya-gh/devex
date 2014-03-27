@@ -33,9 +33,6 @@ GEM
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
-    bootstrap-kaminari-views (0.0.3)
-      kaminari (>= 0.13)
-      rails (>= 3.1)
     builder (3.1.4)
     cancan (1.6.10)
     capybara (2.2.1)
@@ -101,6 +98,9 @@ GEM
     kaminari (0.15.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
     listen (2.7.0)
       celluloid (>= 0.15.2)
       celluloid-io (>= 0.15.0)
@@ -213,7 +213,6 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
   better_errors (~> 1.1.0)
-  bootstrap-kaminari-views
   cancan (~> 1.6.10)
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.0)
@@ -226,6 +225,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
+  kaminari-bootstrap (~> 3.0.1)
   pg
   pry-rails (~> 0.3.2)
   rails (= 4.0.2)

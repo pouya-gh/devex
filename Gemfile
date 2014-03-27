@@ -38,7 +38,7 @@ gem 'rouge', '~> 1.3.3'
 
 # use kaminari for pagination
 gem 'kaminari'
-gem 'bootstrap-kaminari-views'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
