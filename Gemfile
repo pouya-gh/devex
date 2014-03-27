@@ -36,6 +36,10 @@ gem 'redcarpet', '~> 3.1.1'
 # use rouge for syntax highlighting
 gem 'rouge', '~> 1.3.3'
 
+# use kaminari for pagination
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
