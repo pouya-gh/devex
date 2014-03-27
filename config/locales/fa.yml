@@ -119,3 +119,11 @@ fa:
               blank: 'چکیده نمی تواند خالی باشد'
       messages:
        record_invalid: 'داده صحیح نیست'
+
+  views:
+    pagination:
+      first: "&laquo; اولین"
+      last: "آخرین &raquo;"
+      previous: "&lsaquo; قبلی"
+      next: "بعدی &rsaquo;"
+      truncate: "&hellip;"
