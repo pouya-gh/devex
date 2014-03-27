@@ -37,10 +37,6 @@ body, h1, h2, h3, h4, h5, h6 {
   color: #5CA8FF;
 }
 
-.post hr {
-  border: 1px dotted #C0C0C0;
-}
-
 body .post:last-of-type hr {
   border: 0;
 }

@@ -122,8 +122,8 @@ fa:
 
   views:
     pagination:
-      first: "&laquo; اولین"
-      last: "آخرین &raquo;"
-      previous: "&lsaquo; قبلی"
-      next: "بعدی &rsaquo;"
+      first: "&laquo; آخرین"
+      last: "اولین &raquo;"
+      previous: "&lsaquo; بعدی"
+      next: "قبلی &rsaquo;"
       truncate: "&hellip;"
