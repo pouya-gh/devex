@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140322205454) do
+ActiveRecord::Schema.define(version: 20140327104957) do
 
   create_table "posts", force: true do |t|
     t.integer  "user_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140322205454) do
   end
 
   add_index "posts", ["id", "user_id"], name: "index_posts_on_id_and_user_id", unique: true
+  add_index "posts", ["published"], name: "index_posts_on_published"
 
   create_table "users", force: true do |t|
     t.string   "first_name"
