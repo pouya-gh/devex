@@ -48,3 +48,12 @@ body .post:last-of-type hr {
 .clear {
   clear: both;
 }
+
+.pro-label {
+  background: #69D33F;
+  color: #FFF;
+  padding: 2px 5px;
+  font-weight: normal;
+  font-style: normal;
+  border-radius: 5px;
+}
