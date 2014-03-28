@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
-  before_save :regenerate_auth_token
+  after_save :regenerate_auth_token
 
   # first and last name should contain only numbers and letters and whitespaces
   VALID_NAME_REGEX = /\A[A-Za-zا-ی0-9۰-۹\s]+\z/
@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
 
   def regenerate_auth_token
-    # use update_columns to skip validations and callbacks
     update_columns(auth_token: generate_token)
   end
 
