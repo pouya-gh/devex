@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     begin
       @user.save!
       flash[:success] = I18n.translate('register.success')
+      sign_in @user
       redirect_to @user
     rescue ActiveRecord::RecordInvalid
       flash.now[:danger] = I18n.translate('register.fail')
