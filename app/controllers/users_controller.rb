@@ -49,8 +49,12 @@ class UsersController < ApplicationController
   end
 
 	def find_user_by_email(email)
+		User.find_by_email(email)
 	end
 
 	def create_resetting_link(user)
+		token = user.auth_token[0..20]
+		user_id = user.id
+		"#{root_path}/passreset?id={id}&token={token}"
 	end
 end
