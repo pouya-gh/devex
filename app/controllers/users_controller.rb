@@ -23,6 +23,9 @@ class UsersController < ApplicationController
     end
   end
 
+	def request_new_password
+	end
+
   private
 
   def user_params
