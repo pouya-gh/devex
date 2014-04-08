@@ -47,4 +47,10 @@ class UsersController < ApplicationController
       redirect_to sign_in_path(redirect_url: request.original_url)
     end
   end
+
+	def find_by_email(email)
+	end
+
+	def create_resetting_link(user)
+	end
 end
