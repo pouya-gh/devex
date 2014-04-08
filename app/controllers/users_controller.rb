@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :check_signed_in, except: [:new, :create]
+  before_filter :check_signed_in, except: [:new, :create, :request_new_password]
 
   def new
     @user = User.new
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
 	def request_new_password
-		if(user = find_by_email(params[:email]))
+		if(user = find_user_by_email(params[:email]))
 			@link = create_resetting_link(user)
 			respond_to do |format|
 				format.html
