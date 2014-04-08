@@ -3,6 +3,7 @@ Devex::Application.routes.draw do
   get '/sign_up', to: 'users#new', as: 'sign_up'
   get '/sign_in', to: 'sessions#new', as: 'sign_in'
   get '/sign_out', to: 'sessions#destroy', as: 'sign_out'
+	match '/reqpassword', to: 'users#request_new_password', via: [:get, :post]
 
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
