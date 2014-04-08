@@ -24,6 +24,15 @@ class UsersController < ApplicationController
   end
 
 	def request_new_password
+		if(user = find_by_email(params[:email]))
+			@link = create_resetting_link(user)
+			respond_to do |format|
+				format.html
+			end
+		else
+			flash.now[:danger] = "email does not exit"
+			render :fail
+		end
 	end
 
   private
