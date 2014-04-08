@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     end
   end
 
-	def find_by_email(email)
+	def find_user_by_email(email)
 	end
 
 	def create_resetting_link(user)
