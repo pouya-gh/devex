@@ -55,6 +55,6 @@ class UsersController < ApplicationController
 	def create_resetting_link(user)
 		token = user.auth_token[0..20]
 		user_id = user.id
-		"#{root_path}/passreset?id=#{user_id}&token=#{token}"
+		"#{root_url}passreset?id=#{user_id}&token=#{token}"
 	end
 end
