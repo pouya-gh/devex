@@ -36,7 +36,16 @@ class UsersController < ApplicationController
 	end
 
 	def new_password
-	
+		@user = User.find(params[:id])
+		if (params[:token] == @user.auth_token[0..20])
+			@user_id = params[:token]
+			respond_to do |format|
+				format.html
+			end
+		else
+			flash.now[:danger] = "token not valid!"
+			render :fail
+		end
 	end
 
 	def reset_password
