@@ -4,7 +4,8 @@ Devex::Application.routes.draw do
   get '/sign_in', to: 'sessions#new', as: 'sign_in'
   get '/sign_out', to: 'sessions#destroy', as: 'sign_out'
 	match '/reqpassword', to: 'users#request_new_password', via: [:get, :post]
-	get 'newpass', to: 'users#new_password'	
+	get '/newpass', to: 'users#new_password'	
+	post '/resetpass', to: 'users#reset_password'
 
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
