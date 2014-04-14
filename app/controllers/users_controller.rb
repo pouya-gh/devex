@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :check_signed_in, except: [:new, :create, :request_new_password]
+  before_filter :check_signed_in, except: [:new, :create, :request_new_password, :new_password, :reset_password]
 
   def new
     @user = User.new
