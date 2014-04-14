@@ -49,7 +49,19 @@ class UsersController < ApplicationController
 	end
 
 	def reset_password
-		
+		@user = User.find(params[:id])
+		if params[:token] == @user.auth_token[0..20]
+			if @user.update_attributes(params[:user])
+				flash[:success] = "password changed!"
+				redirect_to root_url
+			else
+				flash.now[:danger] = "update unsuccessful!"
+				render :fail
+			end
+		else
+			flash.now[:danger] = "token not valid"
+			render :fail
+		end		
 	end
   private
 
