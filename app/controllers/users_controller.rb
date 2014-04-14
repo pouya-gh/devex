@@ -38,7 +38,8 @@ class UsersController < ApplicationController
 	def new_password
 		@user = User.find(params[:id])
 		if (params[:token] == @user.auth_token[0..20])
-			@user_id = params[:token]
+			@token = params[:token]
+			@user_id = params[:id]
 			respond_to do |format|
 				format.html
 			end
@@ -51,7 +52,9 @@ class UsersController < ApplicationController
 	def reset_password
 		@user = User.find(params[:id])
 		if params[:token] == @user.auth_token[0..20]
-			if @user.update_attributes(params[:user])
+			@user.password = params[:user][:password]
+			@user.password_confirmation = params[:user][:password_confirmation]
+			if @user.save
 				flash[:success] = "password changed!"
 				redirect_to root_url
 			else
