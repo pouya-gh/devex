@@ -52,8 +52,7 @@ class UsersController < ApplicationController
 	end
 
 	def reset_password
-		@user = User.find_by_auth_token(params[:token])
-		if params[:token] == @user.auth_token
+		if(@user = User.find_by_auth_token(params[:token])) 
 			@user.password = params[:user][:password]
 			@user.password_confirmation = params[:user][:password_confirmation]
 			if @user.save
