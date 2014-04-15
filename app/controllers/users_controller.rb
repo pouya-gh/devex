@@ -27,6 +27,8 @@ class UsersController < ApplicationController
 		if(user = find_user_by_email(params[:email]))
 			@link = create_resetting_link(user)
 			respond_to do |format|
+				UserMailer.password_reset_url_email(user, @link).deliver				
+
 				format.html
 			end
 		else
