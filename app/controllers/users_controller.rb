@@ -38,9 +38,9 @@ class UsersController < ApplicationController
 	end
 
 	def new_password
-		@user = User.find_by_auth_token(params[:token])
-		if (params[:token] == @user.auth_token)
-			@token = params[:token]
+		@user = User.find_by_auth_token(params[:id])
+		if (params[:id] == @user.auth_token)
+			@token = params[:id]
 			@user_id = params[:id]
 			respond_to do |format|
 				format.html
@@ -83,6 +83,7 @@ class UsersController < ApplicationController
 	def create_resetting_link(user)
 		token = user.auth_token
 		user_id = user.id
-		"#{root_url}newpass?token=#{token}"
+		#"#{root_url}newpass?token=#{token}"
+		newpass_user_url token
 	end
 end
