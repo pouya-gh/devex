@@ -41,7 +41,6 @@ class UsersController < ApplicationController
 		@user = User.find_by_auth_token(params[:id])
 		if (params[:id] == @user.auth_token)
 			@token = params[:id]
-			@user_id = params[:id]
 			respond_to do |format|
 				format.html
 			end
