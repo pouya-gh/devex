@@ -29,7 +29,7 @@ Devex::Application.configure do
 	
 	#Email configuration
 	config.action_mailer.raise_delivery_errors = true
-	ActionMailer::Base.stmp_settings = {
+	ActionMailer::Base.smtp_settings = {
 		address: "smtp.gmail.com",
 		enable_starttls_auto: true,
 		port: 587,
