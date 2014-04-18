@@ -29,12 +29,6 @@ Devex::Application.configure do
 	
 	#Email configuration
 	config.action_mailer.raise_delivery_errors = true
-	ActionMailer::Base.smtp_settings = {
-		address: "smtp.gmail.com",
-		enable_starttls_auto: true,
-		port: 587,
-		authentication: :plain,
-		user_name: "<username>",
-		password: '<password>'
-	}
+	config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 end
