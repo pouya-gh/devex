@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
 	def request_new_password
 		if(user = User.find_by_email(params[:email]))
-			@link = create_resetting_link(user)
+			@link = newpass_user_url(user.auth_token)
 			respond_to do |format|
 				UserMailer.password_reset_url_email(user, @link).deliver				
 				format.html
@@ -77,11 +77,4 @@ class UsersController < ApplicationController
       redirect_to sign_in_path(redirect_url: request.original_url)
     end
   end
-
-	def create_resetting_link(user)
-		token = user.auth_token
-		user_id = user.id
-		#"#{root_url}newpass?token=#{token}"
-		newpass_user_url token
-	end
 end
