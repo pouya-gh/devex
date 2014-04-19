@@ -14,7 +14,4 @@
 <% end %>
 
 <p>رمز خود رو فراموش کرده اید؟</p>
-<%= form_tag("/reqpassword", method: "post") do %>
-	<%= text_field_tag :email, nil, {placeholder: I18n.translate('user.email'), class: 'form-control'} %>
-	<%= submit_tag("Send", {class: 'btn btn-primary'}) %>
-<% end %>
+<%= link_to "Here", ask_for_token_path %>

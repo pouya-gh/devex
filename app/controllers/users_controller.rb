@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :check_signed_in, except: [:new, :create, :request_new_password, :new_password, :reset_password]
+  before_filter :check_signed_in, except: [:new, :create, :request_token,
+                :send_password_token, :new_password, :reset_password]
 
   def new
     @user = User.new
@@ -22,8 +23,11 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  
+  def request_token
+  end
 
-	def request_new_password
+	def send_password_token
 		if(user = User.find_by_email(params[:email]))
 			@link = newpass_user_url(user.auth_token)
 			respond_to do |format|

@@ -3,7 +3,8 @@ Devex::Application.routes.draw do
   get '/sign_up', to: 'users#new', as: 'sign_up'
   get '/sign_in', to: 'sessions#new', as: 'sign_in'
   get '/sign_out', to: 'sessions#destroy', as: 'sign_out'
-	match '/reqpassword', to: 'users#request_new_password', via: [:get, :post]
+  get '/request_token', to: 'users#request_token', as: 'ask_for_token'
+  post '/send_token', to: 'users#send_password_token', as: 'send_token' 
 	post '/resetpass', to: 'users#reset_password'
 
 	resources :users do
