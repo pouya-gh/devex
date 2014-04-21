@@ -1,8 +1,14 @@
 module SessionsHelper
-  def sign_in(user)
-    user.regenerate_auth_token
-    cookies.permanent[:auth_token] = user.auth_token
-    self.current_user = user
+  def sign_in(user, permanent)
+    if permanent == "true"
+      user.regenerate_auth_token
+      cookies.permanent[:auth_token] = user.auth_token
+      self.current_user = user
+    else
+      user.regenerate_auth_token
+      cookies[:auth_token] = user.auth_token
+      self.current_user = user
+    end
   end
 
   def signed_in?
