@@ -3,6 +3,7 @@ fa:
     delete: 'حذف'
     edit: 'ویرایش'
     view: 'مشاهده'
+    send: 'فرستادن'
 
   user:
     first_name: 'نام'
@@ -41,10 +42,18 @@ fa:
     fail: 'اطلاعات وارد شده صحیح نیست'
     success: 'خوش آمدید'
     not_member: 'عضو نیستید؟ لطفا عضو شوید'
+    remember_me: 'مرا به خاطر بسپار'
+    here: 'اینجا'
+
+  password_reset:
+    success: 'رمز شما با موفقیت عوض شد'
+    fail: 'تغییر رمز موفقیت آمیز نبود'
+    token_not_valid: 'توکن شما معتبر نیست'
 
   authorization:
     required: 'برای مشاهده این صفحه باید وارد شوید'
     access_denied: 'شما اجازه مشاهده این صفحه را ندارید'
+    
 
   format:
     user:

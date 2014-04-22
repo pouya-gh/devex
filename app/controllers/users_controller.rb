@@ -35,20 +35,19 @@ class UsersController < ApplicationController
 				format.html
 			end
 		else
-			flash.now[:danger] = "email does not exit"
+			flash.now[:danger] = I18n.translate('register.fail')
 			render :fail
 		end
 	end
 
 	def new_password
-		@user = User.find_by_auth_token(params[:id])
-		if (params[:id] == @user.auth_token)
+		if (@user = User.find_by_auth_token(params[:id]))
 			@token = params[:id]
 			respond_to do |format|
 				format.html
 			end
 		else
-			flash.now[:danger] = "token not valid!"
+			flash.now[:danger] = I18n.translate('password_reset.token_not_valid')
 			render :fail
 		end
 	end
@@ -58,14 +57,14 @@ class UsersController < ApplicationController
 			@user.password = params[:user][:password]
 			@user.password_confirmation = params[:user][:password_confirmation]
 			if @user.save
-				flash[:success] = "password changed!"
+				flash[:success] = I18n.translate('password_reset.success')
 				redirect_to root_url
 			else
-				flash.now[:danger] = "update unsuccessful!"
+				flash.now[:danger] = I18n.translate('password_reset.fail')
 				render :fail
 			end
 		else
-			flash.now[:danger] = "token not valid"
+			flash.now[:danger] = I18n.translate('password_reset.token_not_valid')
 			render :fail
 		end		
 	end
