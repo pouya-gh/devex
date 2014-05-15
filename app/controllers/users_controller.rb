@@ -61,7 +61,8 @@ class UsersController < ApplicationController
 				redirect_to root_url
 			else
 				flash.now[:danger] = I18n.translate('password_reset.fail')
-				render :fail
+        @token = @user.auth_token
+				render :new_password
 			end
 		else
 			flash.now[:danger] = I18n.translate('password_reset.token_not_valid')
