@@ -58,6 +58,7 @@ class UsersController < ApplicationController
 			@user.password_confirmation = params[:user][:password_confirmation]
 			if @user.save
 				flash[:success] = I18n.translate('password_reset.success')
+        sign_in @user, "false"
 				redirect_to root_url
 			else
 				flash.now[:danger] = I18n.translate('password_reset.fail')
