@@ -25,6 +25,9 @@ class User < ActiveRecord::Base
   # def token_for(field)
   #   write_attribute(field.to_sym, generate_token)
   # end
+  def days_left
+    (subscribed_until - Date.today).to_i
+  end
 
   def last_posts
     self.posts.last(5).reverse

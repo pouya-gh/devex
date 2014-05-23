@@ -1,0 +1,7 @@
+<div align="center">
+	<p>نام: <%= @user.first_name %> <%= @user.last_name %></p>
+	<p>پست الکترونیکی: <%= @user.email %></p>
+	<p>عضو از: <%= @user.created_at.to_date %></p>
+	<p>آخرین تمدید: <%= @user.last_payment %></p>
+	<p>مدت باقی مانده: <%= @user.days_left %> روز</p>
+</div>
