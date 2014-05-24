@@ -1,7 +1,25 @@
 <div align="center">
-	<p>نام: <%= @user.first_name %> <%= @user.last_name %></p>
-	<p>پست الکترونیکی: <%= @user.email %></p>
-	<p>عضو از: <%= @user.created_at.to_date %></p>
-	<p>آخرین تمدید: <%= @user.last_payment %></p>
-	<p>مدت باقی مانده: <%= @user.days_left %> روز</p>
+	<table  class="table">
+		<tr>
+			<td>نام: </td>
+			<td><%= @user.first_name %> <%= @user.last_name %></td>
+		</tr>
+		<tr>
+			<td>پست الکترونیکی: </td>
+			<td><%= @user.email %></td>
+		</tr>
+		<tr>
+			<td>عضو از: </td>
+			<td><%= @user.created_at.to_date %></td>
+		</tr>
+		<tr>
+			<td>آخرین تمدید: </td>
+			<td><%= @user.last_payment %></td>
+		</tr>
+		<tr>
+			<td>مدت باقی مانده: </td>
+			<td><%= @user.days_left %> روز</td>
+		</tr>
+	</table>
+	<%= link_to "تمدید کردن", "#" %>
 </div>
