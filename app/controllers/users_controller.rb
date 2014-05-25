@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :check_signed_in, except: [:new, :create]
+  before_filter :check_signed_in, except: [:new, :create, :request_token,
+                :send_password_token, :new_password, :reset_password]
 
   def new
     @user = User.new
@@ -15,14 +16,60 @@ class UsersController < ApplicationController
     begin
       @user.save!
       flash[:success] = I18n.translate('register.success')
-      sign_in @user
+      sign_in @user, "false"
       redirect_to @user
     rescue ActiveRecord::RecordInvalid
       flash.now[:danger] = I18n.translate('register.fail')
       render :new
     end
   end
+  
+  def request_token
+  end
 
+	def send_password_token
+		if(user = User.find_by_email(params[:email]))
+			@link = newpass_user_url(user.auth_token)
+			respond_to do |format|
+				UserMailer.password_reset_url_email(user, @link).deliver				
+				format.html
+			end
+		else
+			flash.now[:danger] = I18n.translate('register.fail')
+			render :fail
+		end
+	end
+
+	def new_password
+		if (@user = User.find_by_auth_token(params[:id]))
+			@token = params[:id]
+			respond_to do |format|
+				format.html
+			end
+		else
+			flash.now[:danger] = I18n.translate('password_reset.token_not_valid')
+			render :fail
+		end
+	end
+
+	def reset_password
+		if(@user = User.find_by_auth_token(params[:token])) 
+			@user.password = params[:user][:password]
+			@user.password_confirmation = params[:user][:password_confirmation]
+			if @user.save
+				flash[:success] = I18n.translate('password_reset.success')
+        sign_in @user, "false"
+				redirect_to root_url
+			else
+				flash.now[:danger] = I18n.translate('password_reset.fail')
+        @token = @user.auth_token
+				render :new_password
+			end
+		else
+			flash.now[:danger] = I18n.translate('password_reset.token_not_valid')
+			render :fail
+		end		
+	end
   private
 
   def user_params

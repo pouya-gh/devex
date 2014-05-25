@@ -3,6 +3,15 @@ Devex::Application.routes.draw do
   get '/sign_up', to: 'users#new', as: 'sign_up'
   get '/sign_in', to: 'sessions#new', as: 'sign_in'
   get '/sign_out', to: 'sessions#destroy', as: 'sign_out'
+  get '/request_token', to: 'users#request_token', as: 'ask_for_token'
+  post '/send_token', to: 'users#send_password_token', as: 'send_token' 
+	post '/resetpass', to: 'users#reset_password'
+
+	resources :users do
+		member do
+			get 'newpass',to: 'users#new_password'
+		end
+	end
 
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]

@@ -77,4 +77,14 @@ Devex::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.action_mailer.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
+    address: ENV["SMTP_SERVER"],
+    enable_starttls_auto: true,
+    port: ENV["SMTP_PORT"].to_i,
+    authentication: :plain,
+    user_name: ENV["EMAIL_USER_NAME"],
+    password: ENV["EMAIL_PASSWORD"]
+  }
 end

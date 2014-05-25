@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
-      sign_in user
+      sign_in user, params[:remember_me]
       flash[:success] = I18n.translate('sign_in.success')
       redirect_to params[:redirect_url] || user
     else
