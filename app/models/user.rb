@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   #   write_attribute(field.to_sym, generate_token)
   # end
   def days_left
-    (subscribed_until - Date.today).to_i
+    (subscribed_until - Date.today).to_i unless !subscribed_until
   end
 
   def last_posts
