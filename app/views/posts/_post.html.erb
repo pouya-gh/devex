@@ -1,6 +1,6 @@
 <article class="post">
   <header>
-    <%= gravatar_for(post.user) %>
+    <%= gravatar_for(post.admin) %>
     <h2>
       <% if post.pro? %>
         <em class="pro-label">Pro</em>
@@ -9,7 +9,7 @@
     </h2>
     <strong>
       نوشته شده در <%= time_ago_in_words(post.created_at) %> پیش 
-      توسط <%= "#{post.user.first_name} #{post.user.last_name}" %>
+      توسط <%= "#{post.admin.first_name} #{post.admin.last_name}" %>
     </strong>
   </header>
   <div class="clear"></div>
