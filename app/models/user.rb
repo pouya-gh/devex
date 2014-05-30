@@ -36,4 +36,8 @@ class User < ActiveRecord::Base
     text = salt + Time.now.to_s + email.to_s
     Digest::MD5.hexdigest(text)
   end
+
+  def admin?
+    false
+  end
 end
