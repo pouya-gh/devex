@@ -21,6 +21,7 @@ module SessionsHelper
 
   def current_user
     @current_user ||= User.find_by(auth_token: cookies[:auth_token])
+    @current_user ||= Admin.find_by(auth_token: cookies[:auth_token])
   end
 
   def sign_out
