@@ -3,8 +3,6 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :posts
-
   after_save :regenerate_auth_token
 
   # first and last name should contain only numbers and letters and whitespaces
