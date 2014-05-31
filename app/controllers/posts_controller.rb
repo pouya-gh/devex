@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.new
+    render layout: 'admin'
   end
 
   def create
@@ -10,28 +11,29 @@ class PostsController < ApplicationController
     begin 
       @post.save!
       flash[:success] = I18n.translate('post.submit.success')
-      redirect_to current_user
+      redirect_to current_user, layout: 'admin'
     rescue ActiveRecord::RecordInvalid
       flash.now[:danger] = I18n.translate('post.submit.fail')
-      render :new
+      render :new, layout: 'admin'
     end
   end
 
   def edit
     @post = Post.find(params[:id])
+    render layout: 'admin'
   end
 
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
     flash[:success] = I18n.translate('post.update.success')
-    redirect_to current_user
+    redirect_to current_user, layout: 'admin'
   end
 
   def destroy
     Post.find(params[:id]).destroy!
     flash[:success] = I18n.translate('post.delete.success')
-    redirect_to current_user
+    redirect_to current_user, layout: 'admin'
   end
 
   private

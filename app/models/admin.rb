@@ -1,7 +1,9 @@
 # encoding: utf-8
 
-class User < ActiveRecord::Base
-  has_secure_password
+class Admin < ActiveRecord::Base
+	has_secure_password
+
+  has_many :posts
 
   after_save :regenerate_auth_token
 
@@ -20,13 +22,6 @@ class User < ActiveRecord::Base
     update_columns(auth_token: generate_token)
   end
 
-  # def token_for(field)
-  #   write_attribute(field.to_sym, generate_token)
-  # end
-  def days_left
-    (subscribed_until - Date.today).to_i unless !subscribed_until
-  end
-
   def last_posts
     self.posts.last(5).reverse
   end
@@ -38,6 +33,6 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    false
+  	true
   end
 end

@@ -1,7 +1,7 @@
-<% if user.last_posts.empty? %>
+<% if admin.last_posts.empty? %>
   پستی برای نمایش وجود ندارد.
 <% end %>
-<% user.last_posts.each do |post| %>
+<% admin.last_posts.each do |post| %>
   <article>
     <header>
       <h2><%= post.title %></h2>

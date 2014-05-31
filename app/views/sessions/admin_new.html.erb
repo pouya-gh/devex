@@ -1,0 +1,17 @@
+<%= form_tag '/sessions', {subdomain: "admin", action: "/admin_create", method: "Post" } do %>
+	<%= hidden_field_tag(:token, "#{@token}") %>
+
+	<%= label_tag :email, I18n.translate('user.email') %>
+	<%= text_field_tag :email, nil, {name: 'session[email]', class: "form-control"} %>
+	<p></p>
+
+	<%= label_tag :password, I18n.translate('user.password') %>
+	<%= password_field_tag :password, nil, {name: "session[password]", class: "form-control"} %>
+	<p></p>
+
+	<%= label_tag :remember_me, I18n.translate('sign_in.remember_me') %>
+	<%= check_box_tag :remember_me, "true" %>
+	<p></p>
+
+	<%= submit_tag "Submit", class: 'btn btn-primary' %>
+<% end %>

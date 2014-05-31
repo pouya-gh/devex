@@ -3,6 +3,7 @@ class HomesController < ApplicationController
     if signed_in?
       @posts = Post.where(published: true).order('id DESC')
       .page(params[:page])
+      render layout: 'admin' if current_user.admin?
       # .reverse
     else
       @posts = Post.where(published: true, pro: false).order('id DESC')

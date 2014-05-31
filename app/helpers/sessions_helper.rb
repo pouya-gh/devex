@@ -11,6 +11,18 @@ module SessionsHelper
     end
   end
 
+  def admin_sign_in(admin, permanent)
+    if permanent == "true"
+      admin.regenerate_auth_token
+      cookies.permanent[:auth_token] = admin.auth_token
+      self.current_user = admin
+    else
+      admin.regenerate_auth_token
+      cookies[:auth_token] = admin.auth_token
+      self.current_user = admin
+    end
+  end
+
   def signed_in?
     !self.current_user.nil? 
   end
@@ -21,6 +33,7 @@ module SessionsHelper
 
   def current_user
     @current_user ||= User.find_by(auth_token: cookies[:auth_token])
+    @current_user ||= Admin.find_by(auth_token: cookies[:auth_token])
   end
 
   def sign_out
