@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327104957) do
+ActiveRecord::Schema.define(version: 20140523152606) do
 
   create_table "posts", force: true do |t|
     t.integer  "user_id"
@@ -35,7 +35,9 @@ ActiveRecord::Schema.define(version: 20140327104957) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "auth_token"
-    t.boolean  "admin",           default: false
+    t.boolean  "admin",            default: false
+    t.date     "last_payment"
+    t.date     "subscribed_until"
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true
