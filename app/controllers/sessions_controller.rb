@@ -11,26 +11,12 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email])
-    if user && user.authenticate(params[:session][:password])
-      sign_in user, params[:remember_me]
-      flash[:success] = I18n.translate('sign_in.success')
-      redirect_to params[:redirect_url] || user
-    else
-      flash.now[:danger] = I18n.translate('sign_in.fail')
-      render :new
-    end
+    sign_in_person(user)
   end
 
   def admin_create
     admin = Admin.find_by(email: params[:session][:email])
-    if admin && admin.authenticate(params[:session][:password])
-      admin_sign_in admin, params[:remember_me]
-      flash[:success] = I18n.translate('sign_in.success')
-      redirect_to params[:redirect_url] || admin
-    else
-      flash[:danger] = I18n.translate('sign_in.fail')
-      redirect_to admin_sign_in_url
-    end
+    sign_in_person(admin)
   end
 
   def destroy
@@ -42,5 +28,16 @@ class SessionsController < ApplicationController
 
   def check_signed_in
     redirect_to current_user if signed_in?
+  end
+
+  def sign_in_person(user)
+    if user && user.authenticate(params[:session][:password])
+      sign_in user, params[:remember_me]
+      flash[:success] = I18n.translate('sign_in.success')
+      redirect_to params[:redirect_url] || user
+    else
+      flash[:danger] = I18n.translate('sign_in.fail')
+      render params[:form_url]
+    end
   end
 end
