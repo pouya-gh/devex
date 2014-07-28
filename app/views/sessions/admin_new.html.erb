@@ -1,4 +1,4 @@
-<%= form_tag '/sessions', {subdomain: "admin", action: "/admin_create", method: "Post" } do %>
+<%= form_tag admin_sessions_url, {action: admin_sessions_url, method: "Post" } do %>
 	<%= hidden_field_tag(:token, "#{@token}") %>
 
 	<%= label_tag :email, I18n.translate('user.email') %>
