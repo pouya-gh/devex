@@ -1,5 +1,6 @@
 <%= form_tag admin_sessions_url, {action: admin_sessions_url, method: "Post" } do %>
 	<%= hidden_field_tag(:token, "#{@token}") %>
+	<%= hidden_field_tag(:form_url, admin_sign_in_url) %>
 
 	<%= label_tag :email, I18n.translate('user.email') %>
 	<%= text_field_tag :email, nil, {name: 'session[email]', class: "form-control"} %>
