@@ -28,8 +28,8 @@ class SessionsController < ApplicationController
       flash[:success] = I18n.translate('sign_in.success')
       redirect_to params[:redirect_url] || admin
     else
-      flash.now[:danger] = I18n.translate('sign_in.fail')
-      redirect_to admin_sign_in
+      flash[:danger] = I18n.translate('sign_in.fail')
+      redirect_to admin_sign_in_path
     end
   end
 
