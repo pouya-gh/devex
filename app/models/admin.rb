@@ -5,8 +5,8 @@ class Admin < ActiveRecord::Base
 
   has_many :posts
 
-  require "sign_in_tools"
-  include SignInTools
+  require "user_utils"
+  include UserUtils
   after_save :regenerate_auth_token
 
   validates :first_name, presence: true, length: { minimum: 3, maximum: 30 },
