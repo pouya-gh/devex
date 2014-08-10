@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
       redirect_to params[:redirect_url] || user
     else
       flash[:danger] = I18n.translate('sign_in.fail')
-      render params[:form_url]
+      redirect_to params[:form_url]
     end
   end
 end
