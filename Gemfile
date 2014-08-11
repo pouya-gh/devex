@@ -80,6 +80,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'pg'
 
+gem 'database_cleaner'
 # Use unicorn as the app server
 # gem 'unicorn'
 
