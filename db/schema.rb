@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140530163517) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -24,8 +27,8 @@ ActiveRecord::Schema.define(version: 20140530163517) do
     t.datetime "updated_at"
   end
 
-  add_index "admins", ["auth_token"], name: "index_admins_on_auth_token", unique: true
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+  add_index "admins", ["auth_token"], name: "index_admins_on_auth_token", unique: true, using: :btree
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -38,8 +41,7 @@ ActiveRecord::Schema.define(version: 20140530163517) do
     t.integer  "admin_id"
   end
 
-  add_index "posts", ["id"], name: "index_posts_on_id_and_user_id", unique: true
-  add_index "posts", ["published"], name: "index_posts_on_published"
+  add_index "posts", ["published"], name: "index_posts_on_published", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -53,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140530163517) do
     t.date     "subscribed_until"
   end
 
-  add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

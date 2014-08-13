@@ -73,17 +73,12 @@ group :test, :development do
   gem "better_errors", "~> 1.1.0"
 
   gem "terminal-notifier-guard", "~> 1.5.3"
-
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
 end
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
 
-group :production do
-  gem 'pg'
-end
+gem 'pg'
 
 # Use unicorn as the app server
 # gem 'unicorn'
