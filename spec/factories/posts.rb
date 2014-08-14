@@ -2,8 +2,9 @@
 
 FactoryGirl.define do
   factory :post do
-    user_id 1
-    title "MyString"
-    body "MyString"
+    association :admin
+    sequence(:title) { |n| "Title#{n}" }
+    sequence(:digest) { |n| "Digest#{n}" * 3 }
+    sequence(:body) { |n| "Title#{n}" * 10 }
   end
 end
