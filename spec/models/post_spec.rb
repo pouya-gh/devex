@@ -45,10 +45,10 @@ describe Post do
     end
   end
 
-  describe "#subscription_needed?" do
+  describe "#subscribtion_needed?" do
     it "returns value of pro" do
       post = build(:post)
-      expect(post.subscription_needed?).to eq post.pro
+      expect(post.subscribtion_needed?).to eq post.pro
     end
   end
 
