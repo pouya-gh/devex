@@ -7,6 +7,10 @@ class Post < ActiveRecord::Base
   validates :admin_id, presence: true
   validate :tags_cant_be_more_than_5
 
+  def subscribtion_needed?
+    self.pro
+  end
+
   private
   def tags_cant_be_more_than_5
     if tags && (tags.size > 5)
