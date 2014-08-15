@@ -41,7 +41,7 @@ describe Post do
     it "is invalid with more than 5 tags" do
       post = build(:post, 
                    tags: ["Ruby", "Rails", "Web", "Rspec", "testing", "extra"])
-      expect(post).to be_valid
+      expect(post).not_to be_valid
     end
   end
 
