@@ -3,4 +3,5 @@ class Post < ActiveRecord::Base
   validates :title, presence: true
   validates :body, presence: true
   validates :digest, presence: true
+  validates :admin_id, presence: true
 end
