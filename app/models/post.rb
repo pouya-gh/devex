@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-  attr_accessor :tags
   belongs_to :admin
   validates :title, presence: true
   validates :body, presence: true
