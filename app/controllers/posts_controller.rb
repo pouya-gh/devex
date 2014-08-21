@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :check_admin, except: [:index]
+  before_filter :check_admin, except: [:index, :show]
 
   def new
     @post = current_user.posts.new
@@ -19,6 +19,16 @@ class PostsController < ApplicationController
       flash.now[:danger] = I18n.translate('post.submit.fail')
       @post.tags = @post.tags.join(' ')
       render :new, layout: 'admin'
+    end
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    if @post.subscribtion_needed?
+      unless signed_in?
+        flash[:danger] = I18n.translate('post.not_authorized')
+        redirect_to root_path
+      end
     end
   end
 
