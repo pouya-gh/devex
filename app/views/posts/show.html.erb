@@ -1,0 +1,12 @@
+<div>
+<strong><%= @post.title %></strong>
+<p>ـــــــــــــــــــــــــــــــــ</p>
+<p><%= h(@post.body).gsub(/\n/, '<br/>').html_safe %></p>
+<p>ـــــــــــــــــــــــــــــــــ</p>
+<p>تگ ها:</p>
+<ul id="tags">
+  <% @post.tags.each do |t| %>
+    <li><%= link_to t, "#" %></li>
+  <% end %>
+</ul>
+</div>
