@@ -9,6 +9,8 @@ require "sprockets/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
+TAG_SEPERATOR = " "
+
 Bundler.require(:default, Rails.env)
 
 module Devex

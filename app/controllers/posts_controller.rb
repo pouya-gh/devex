@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def create
     temp = post_params
-    temp[:tags] = temp[:tags].split(" ")
+    temp[:tags] = temp[:tags].split(TAG_SEPERATOR)
     @post = current_user.posts.new(temp)
     begin 
       @post.save!
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
       redirect_to current_user, layout: 'admin'
     rescue ActiveRecord::RecordInvalid
       flash.now[:danger] = I18n.translate('post.submit.fail')
-      @post.tags = @post.tags.join(' ')
+      @post.tags = @post.tags.join(TAG_SEPERATOR)
       render :new, layout: 'admin'
     end
   end
@@ -34,14 +34,14 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @post.tags = @post.tags.join(" ")
+    @post.tags = @post.tags.join(TAG_SEPERATOR)
     render layout: 'admin'
   end
 
   def update
     @post = Post.find(params[:id])
     temp = post_params
-    temp[:tags] = temp[:tags].split(" ")
+    temp[:tags] = temp[:tags].split(TAG_SEPERATOR)
     @post.update(temp)
     flash[:success] = I18n.translate('post.update.success')
     redirect_to current_user, layout: 'admin'
