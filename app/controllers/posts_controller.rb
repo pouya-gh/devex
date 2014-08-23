@@ -3,6 +3,9 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.new
+    # If I leave tags attribute to remain as an array
+    # in the form instead of an empty for you would have
+    # seen a "[]", which would have been akward!
     @post.tags = ""
     render layout: 'admin'
   end
