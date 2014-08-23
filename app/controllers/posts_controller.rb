@@ -24,6 +24,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if current_user.admin?
+      render :show, layout: 'admin'
+    end
     if @post.subscribtion_needed?
       unless signed_in?
         flash[:danger] = I18n.translate('post.not_authorized')
