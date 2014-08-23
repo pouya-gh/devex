@@ -8,9 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    temp = post_params
-    temp[:tags] = temp[:tags].split(TAG_SEPERATOR)
-    @post = current_user.posts.new(temp)
+    @post = current_user.posts.new(post_params)
     begin 
       @post.save!
       flash[:success] = I18n.translate('post.submit.success')
@@ -43,9 +41,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    temp = post_params
-    temp[:tags] = temp[:tags].split(TAG_SEPERATOR)
-    @post.update(temp)
+    @post.update(post_params)
     flash[:success] = I18n.translate('post.update.success')
     redirect_to current_user, layout: 'admin'
   end
@@ -59,7 +55,9 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require('post').permit(:title, :body, :pro, :digest, :published, :tags)
+    temp = params.require('post').permit(:title, :body, :pro, :digest, :published, :tags)
+    temp[:tags] = temp[:tags].split(TAG_SEPERATOR)
+    temp 
   end
 
   private
