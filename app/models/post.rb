@@ -4,16 +4,9 @@ class Post < ActiveRecord::Base
   validates :body, presence: true
   validates :digest, presence: true
   validates :admin_id, presence: true
-  validate :tags_cant_be_more_than_5
+  validates :tags, length: {maximum: 5}
 
   def subscribtion_needed?
     self.pro
-  end
-
-  private
-  def tags_cant_be_more_than_5
-    if tags && (tags.size > 5)
-      errors.add(:tags, "Invalid number of tags")
-    end
   end
 end

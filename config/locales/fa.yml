@@ -54,7 +54,6 @@ fa:
   authorization:
     required: 'برای مشاهده این صفحه باید وارد شوید'
     access_denied: 'شما اجازه مشاهده این صفحه را ندارید'
-    
 
   format:
     user:
@@ -127,6 +126,8 @@ fa:
               blank: 'بدنه نمی تواند خالی باشد'
             digest:
               blank: 'چکیده نمی تواند خالی باشد'
+            tags:
+              too_long: 'نمی توانید بیشتر از 5 تگ استفاده کنید.'
       messages:
        record_invalid: 'داده صحیح نیست'
 
