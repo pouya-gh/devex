@@ -54,12 +54,12 @@ body .post:last-of-type hr {
   border-radius: 5px;
 }
 
-#tags {
+.tags {
   list-style: none;
   float: right;
 }
 
-#tags li {
+.tags li {
   float: right;
   margin-right: 10px;
   margin-left: 10px;

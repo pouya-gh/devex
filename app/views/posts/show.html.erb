@@ -4,7 +4,7 @@
 <p><%= h(@post.body).gsub(/\n/, '<br/>').html_safe %></p>
 <p>ـــــــــــــــــــــــــــــــــ</p>
 <p>تگ ها:</p>
-<ul id="tags">
+<ul class="tags">
   <% @post.tags.each do |t| %>
     <li><%= link_to t, "#" %></li>
   <% end %>
