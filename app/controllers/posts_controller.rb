@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       redirect_to current_user, layout: 'admin'
     rescue ActiveRecord::RecordInvalid
       flash.now[:danger] = I18n.translate('post.submit.fail')
-      @post.tags = @post.tags.join(TAG_SEPERATOR)
+      @post.tags = @post.tags.join(TAG_SEPARATOR)
       render :new, layout: 'admin'
     end
   end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @post.tags = @post.tags.join(TAG_SEPERATOR)
+    @post.tags = @post.tags.join(TAG_SEPARATOR)
     render layout: 'admin'
   end
 
@@ -59,7 +59,7 @@ class PostsController < ApplicationController
 
   def post_params
     temp = params.require('post').permit(:title, :body, :pro, :digest, :published, :tags)
-    temp[:tags] = temp[:tags].split(TAG_SEPERATOR)
+    temp[:tags] = temp[:tags].split(TAG_SEPARATOR)
     temp 
   end
 
