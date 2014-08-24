@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
-  before_filter :check_admin, except: [:index]
+  before_filter :check_admin, except: [:index, :show]
 
   def new
     @post = current_user.posts.new
+    # If I leave tags attribute to remain as an array
+    # in the form instead of an empty for you would have
+    # seen a "[]", which would have been akward!
+    @post.tags = ""
     render layout: 'admin'
   end
 
@@ -14,12 +18,27 @@ class PostsController < ApplicationController
       redirect_to current_user, layout: 'admin'
     rescue ActiveRecord::RecordInvalid
       flash.now[:danger] = I18n.translate('post.submit.fail')
+      @post.tags = @post.tags.join(TAG_SEPARATOR)
       render :new, layout: 'admin'
+    end
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    if current_user.admin?
+      render :show, layout: 'admin'
+    end
+    if @post.subscribtion_needed?
+      unless signed_in?
+        flash[:danger] = I18n.translate('post.not_authorized')
+        redirect_to root_path
+      end
     end
   end
 
   def edit
     @post = Post.find(params[:id])
+    @post.tags = @post.tags.join(TAG_SEPARATOR)
     render layout: 'admin'
   end
 
@@ -39,7 +58,9 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require('post').permit(:title, :body, :pro, :digest, :published)
+    temp = params.require('post').permit(:title, :body, :pro, :digest, :published, :tags)
+    temp[:tags] = temp[:tags].split(TAG_SEPARATOR)
+    temp 
   end
 
   private

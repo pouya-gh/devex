@@ -30,6 +30,7 @@ fa:
     lasts: 'آخرین پست های ارسالی'
     not_authorized: 'شما اجازه مشاهده این صفحه را ندارید'
     text: 'پست ها'
+    tags: 'تگ ها (حد اکثر 5 تگ)'
 
   register:
     text: 'ثبت نام'
@@ -53,7 +54,6 @@ fa:
   authorization:
     required: 'برای مشاهده این صفحه باید وارد شوید'
     access_denied: 'شما اجازه مشاهده این صفحه را ندارید'
-    
 
   format:
     user:
@@ -126,6 +126,8 @@ fa:
               blank: 'بدنه نمی تواند خالی باشد'
             digest:
               blank: 'چکیده نمی تواند خالی باشد'
+            tags:
+              too_long: 'نمی توانید بیشتر از 5 تگ استفاده کنید.'
       messages:
        record_invalid: 'داده صحیح نیست'
 

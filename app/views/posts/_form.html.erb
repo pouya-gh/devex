@@ -17,6 +17,12 @@
     <%= render partial: 'shared/form_errors', locals: { model: @post, key: :body } %>
   </div>
 
+  <div class="form-group <%= "has-error" if @post.errors.include? :tags %>">
+    <%= f.label :tags, I18n.translate('post.tags') %>
+    <%= f.text_field :tags, class: 'form-control' %>
+    <%= render partial: 'shared/form_errors', locals: { model: @post, key: :tags } %>
+  </div>
+
   <div class="form-group">
     <%= f.label :published, I18n.translate('post.publish') %>
     <%= f.select :published, ['true', 'false'], class: 'form-control' %>

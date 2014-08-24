@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814094339) do
+ActiveRecord::Schema.define(version: 20140815133255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 20140814094339) do
     t.text     "digest"
     t.boolean  "published",  default: false
     t.integer  "admin_id"
+    t.string   "tags",       default: [],    array: true
   end
 
   add_index "posts", ["published"], name: "index_posts_on_published", using: :btree
+  add_index "posts", ["tags"], name: "index_posts_on_tags", using: :gin
 
   create_table "users", force: true do |t|
     t.string   "first_name"

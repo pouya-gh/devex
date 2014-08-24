@@ -53,3 +53,16 @@ body .post:last-of-type hr {
   font-style: normal;
   border-radius: 5px;
 }
+
+.tags {
+  list-style: none;
+  float: right;
+}
+
+.tags li {
+  float: right;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
