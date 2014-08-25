@@ -11,6 +11,6 @@ class Post < ActiveRecord::Base
   end
 
   def self.has_tag(tag)
-    self.where("'#{tag}' = ANY (tags)")
+    self.where("'#{tag}' = ANY (tags) AND published = true")
   end
 end

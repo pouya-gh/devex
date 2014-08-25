@@ -73,8 +73,14 @@ describe Post do
   end
 
   describe "has_tag" do
-    it "returns posts containtin a given tag" do
-      post = create(:post, tags: ["ruby", "rails"])
+    it "returns posts containting a given tag" do
+      post = create(:post, tags: ["ruby", "rails"], published: true )
+      expect(Post.has_tag("ruby")).to eq [post]
+    end
+
+    it "does not return unpublished posts" do
+      post = create(:post, tags: ["ruby", "rails"], published: true)
+      post2 = create(:post, tags: ["ruby", "sinatra"])
       expect(Post.has_tag("ruby")).to eq [post]
     end
   end
