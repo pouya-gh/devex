@@ -1,0 +1,9 @@
+<% if !@posts %>
+  بستی یافت نشد.
+<% else %>
+  <ul>
+  <% @posts.each do |p| %>
+      <li><%= link_to p.title, p %></li>
+  <% end %>
+  </ul>
+<% end %>
