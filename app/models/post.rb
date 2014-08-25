@@ -9,4 +9,8 @@ class Post < ActiveRecord::Base
   def subscribtion_needed?
     self.pro
   end
+
+  def self.has_tag(tag)
+    self.where("'#{tag}' = ANY (tags)")
+  end
 end
