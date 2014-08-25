@@ -65,4 +65,10 @@ describe Post do
       expect(post.published).to be_false
     end
   end
+  describe "has_tag" do
+    it "returns posts containtin a given tag" do
+      post = create(:post, tags: ["ruby", "rails"])
+      expect(Post.has_tag("ruby")).to eq [post]
+    end
+  end
 end
