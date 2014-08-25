@@ -26,6 +26,12 @@ describe Post do
     expect(post).not_to be_valid
   end
 
+  it "is invalid with duplicate titles" do
+    create(:post, title: "aTitle")
+    post = build(:post, title: "aTitle")
+    expect(post).not_to be_valid
+  end
+
   describe "Tags" do
     it "is valid without tags" do
       post = build(:post, tags: nil)
@@ -65,6 +71,7 @@ describe Post do
       expect(post.published).to be_false
     end
   end
+
   describe "has_tag" do
     it "returns posts containtin a given tag" do
       post = create(:post, tags: ["ruby", "rails"])
