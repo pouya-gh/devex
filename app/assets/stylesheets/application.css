@@ -11,3 +11,24 @@
  *= require_self
  *= require_tree .
  */
+.search {
+  margin-right: 33%;
+  float: right;
+  padding-bottom: 0px;
+}
+
+.search-txt-bx {
+  height: 34px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-btn {
+  height: 34px;
+  margin-top: 1px;
+  color: #FFF;
+  background-color: #3276B1;
+  border-color: #285E8E;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
