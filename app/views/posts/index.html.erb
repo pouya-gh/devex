@@ -1,6 +1,6 @@
 <% if !@posts %>
   پستی یافت نشد.
-<% elsif !@posts.kind_of?(Array) %>
+<% elsif @posts.kind_of?(Post) %>
   <% @post = @posts %>
   <%= render "display_post" %>
 <% else %>
