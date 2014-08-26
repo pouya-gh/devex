@@ -1,5 +1,8 @@
 <% if !@posts %>
-  بستی یافت نشد.
+  پستی یافت نشد.
+<% elsif !@posts.kind_of?(Array) %>
+  <% @post = @posts %>
+  <%= render "display_post" %>
 <% else %>
   <ul>
   <% @posts.each do |p| %>
