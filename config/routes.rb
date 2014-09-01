@@ -12,21 +12,21 @@ Devex::Application.routes.draw do
   		get 'newpass',to: 'users#new_password'
   	end
   end
-  scope "/admins" do
-    get '/', to: 'sessions#admin_new'
-    get '/sign_in', to: 'sessions#admin_new', as: 'admin_sign_in'
-    get '/sign_out', to: 'sessions#destroy', as: 'admin_sign_out'
-    get '/request_token', to: 'admins#request_token', as: 'admin_ask_for_token'
-    post '/send_token', to: 'admins#send_password_token', as: 'admin_send_token' 
-    post '/resetpass', to: 'admins#reset_password', as: 'admin_reset_pass' 
-    post '/sessions' ,to: 'sessions#admin_create', as: 'admin_sessions'
-    resources :posts, only: [:new, :create, :destroy, :edit, :update, :show]
+  scope "/admin", as: "admin" do
+    get '/sign_in', to: 'sessions#admin_new'
+    get '/sign_out', to: 'sessions#destroy'
+    get '/request_token', to: 'admins#request_token', as: 'ask_for_token'
+    post '/send_token', to: 'admins#send_password_token', as: 'send_token' 
+    post '/resetpass', to: 'admins#reset_password', as: 'reset_pass' 
+    post '/sessions' ,to: 'sessions#admin_create'
   end
   resources :admins do
     member do
       get 'newpass',to: 'admins#new_password'
     end
+    resources :posts, except: [:show, :index]
   end
+  resources :posts, only: [:show, :index]
   resources :admins, only: [:show]
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
