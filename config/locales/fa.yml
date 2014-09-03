@@ -138,3 +138,5 @@ fa:
       previous: "&lsaquo; بعدی"
       next: "قبلی &rsaquo;"
       truncate: "&hellip;"
+  form:
+    search: 'جستجو'

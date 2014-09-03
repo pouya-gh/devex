@@ -18,7 +18,9 @@
       </ul>
 
       <!-- user menu for signed in users -->
-      
+      <% if signed_in? %>
+        <%= render 'shared/search_form' %>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
         <li class="dropdown">

@@ -1,0 +1,12 @@
+<% if !@posts %>
+  پستی یافت نشد.
+<% elsif @posts.kind_of?(Post) %>
+  <% @post = @posts %>
+  <%= render "display_post" %>
+<% else %>
+  <ul>
+  <% @posts.each do |p| %>
+      <li><%= link_to p.title, p %></li>
+  <% end %>
+  </ul>
+<% end %>

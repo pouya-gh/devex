@@ -1,5 +1,21 @@
 class PostsController < ApplicationController
   before_filter :check_admin, except: [:index, :show]
+  before_filter :check_signed_in, only: [:index]
+
+  def index
+    @posts = if params[:tag]
+      Post.has_tag(params[:tag])  
+    elsif params[:title]
+      Post.find_by(title: params[:title], published: true)
+    else
+      Post.find_by(published: true)
+    end
+    if current_user.admin?
+      render :index, layout: 'admin'
+    else
+      render :index
+    end
+  end
 
   def new
     @post = current_user.posts.new
@@ -69,6 +85,13 @@ class PostsController < ApplicationController
     unless current_user.admin?
       flash[:danger] = I18n.translate('post.not_authorized')
       redirect_to current_user
+    end
+  end
+
+  def check_signed_in
+    unless signed_in?
+      flash[:warning] = I18n.translate('authorization.required')
+      redirect_to sign_in_path(redirect_url: request.original_url)
     end
   end
 end

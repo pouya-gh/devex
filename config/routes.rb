@@ -20,7 +20,7 @@ Devex::Application.routes.draw do
     post '/send_token', to: 'admins#send_password_token', as: 'admin_send_token' 
     post '/resetpass', to: 'admins#reset_password', as: 'admin_reset_pass' 
     post '/sessions' ,to: 'sessions#admin_create', as: 'admin_sessions'
-    resources :posts, only: [:new, :create, :destroy, :edit, :update, :show]
+    resources :posts
   end
   resources :admins do
     member do
