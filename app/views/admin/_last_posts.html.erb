@@ -11,7 +11,7 @@
             <%= I18n.translate('post.not_published') %>
           </label>
         <% end %>
-        <%= link_to I18n.translate('buttons.edit'), edit_post_path(post),
+        <%= link_to I18n.translate('buttons.edit'), edit_admin_post_path(current_user, post),
                     class: 'btn btn-warning btn-xs' %>
         <%= link_to I18n.translate('buttons.delete'), post_path(post), 
                     method: 'delete', class: 'btn btn-danger btn-xs' %>
