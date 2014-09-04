@@ -7,7 +7,7 @@
       <h1>
         <%= I18n.translate('post.text') %>
       </h1>
-      <%= link_to I18n.translate('post.submit.text'), new_post_path,
+      <%= link_to I18n.translate('post.submit.text'), new_admin_post_url(current_user),
                   class: 'btn btn-primary btn-xs pull-right add-post' %>
     </header>
     <%= render partial: 'admin/last_posts', locals: { admin: current_user } %>
