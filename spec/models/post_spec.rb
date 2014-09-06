@@ -72,8 +72,8 @@ describe Post do
     end
   end
 
-  describe "has_tag" do
-    it "returns posts containting a given tag" do
+  describe "#has_tag()" do
+    it "returns posts containing a given tag" do
       post = create(:post, tags: ["ruby", "rails"], published: true )
       expect(Post.has_tag("ruby")).to eq [post]
     end
@@ -82,6 +82,21 @@ describe Post do
       post = create(:post, tags: ["ruby", "rails"], published: true)
       post2 = create(:post, tags: ["ruby", "sinatra"])
       expect(Post.has_tag("ruby")).to eq [post]
+    end
+  end
+
+  describe "#search_query()" do
+    it "returns posts eather containing a given tag or have a title like the given query" do
+      post1 = create(:post, title: "ruby", published: true)
+      post2 = create(:post,
+                     title: "atest", 
+                     tags: ["ruby", "rails"],
+                     published: true)
+      post3 = create(:post,
+                     title: "a post",
+                     tags: ["c#", ".net"],
+                     published: true)
+      expect(Post.search_query("ruby")).to eq [post1, post2]
     end
   end
 end
