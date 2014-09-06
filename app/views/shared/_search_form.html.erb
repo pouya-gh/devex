@@ -1,7 +1,7 @@
 <div class="search">
 <%= form_tag(posts_url, method: "get") do %>
-  <%= text_field_tag(:title, "", {class: "search-txt-bx",
-                                  placeholder: I18n.translate('post.title')}) %>
+  <%= text_field_tag(:q, "", {class: "search-txt-bx",
+                                  placeholder: I18n.translate('post.titleortag')}) %>
   <%= submit_tag(I18n.translate('form.search'), {class: 'search-btn'}) %>
 <% end %>
 </div>

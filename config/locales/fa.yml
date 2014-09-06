@@ -31,6 +31,7 @@ fa:
     not_authorized: 'شما اجازه مشاهده این صفحه را ندارید'
     text: 'پست ها'
     tags: 'تگ ها (حد اکثر 5 تگ)'
+    titleortag: 'عنوان یا تگ'
 
   register:
     text: 'ثبت نام'
