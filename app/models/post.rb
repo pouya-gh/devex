@@ -16,6 +16,10 @@ class Post < ActiveRecord::Base
     self.where("'#{tag}' = ANY (tags) AND published = true")
   end
 
+  def self.search_query(query)
+    self.where("(title) LIKE '%#{query}%' OR '#{query}' = ANY (tags) AND published = true")
+  end
+
   def chomp_tags
     self.tags.size.times do |indx|
       self.tags[indx].gsub!(/^\s+/, "")
