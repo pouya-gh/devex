@@ -5,8 +5,8 @@ class PostsController < ApplicationController
   def index
     @posts = if params[:tag]
       Post.has_tag(params[:tag])  
-    elsif params[:title]
-      Post.find_by(title: params[:title], published: true)
+    elsif params[:q]
+      Post.search_query(params[:q])
     else
       Post.find_by(published: true)
     end
