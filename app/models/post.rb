@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
   validates :digest, presence: true
   validates :admin_id, presence: true
   validates :tags, length: {maximum: 5}
+  extend FriendlyId
+  friendly_id :title
 
   before_save :chomp_tags
 
