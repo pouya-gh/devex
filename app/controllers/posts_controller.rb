@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(title: params[:id])
+    @post = Post.find_by(slug: params[:id])
     if current_user.admin?
       render :show, layout: 'admin'
     end
@@ -53,20 +53,20 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by(title: params[:id])
+    @post = Post.find_by(slug: params[:id])
     @post.tags = @post.tags.join(TAG_SEPARATOR)
     render layout: 'admin'
   end
 
   def update
-    @post = Post.find_by(title: params[:id])
+    @post = Post.find_by(slug: params[:id])
     @post.update(post_params)
     flash[:success] = I18n.translate('post.update.success')
     redirect_to current_user, layout: 'admin'
   end
 
   def destroy
-    Post.find_by(title: params[:id]).destroy!
+    Post.find_by(slug: params[:id]).destroy!
     flash[:success] = I18n.translate('post.delete.success')
     redirect_to current_user, layout: 'admin'
   end
@@ -74,9 +74,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    temp = params.require('post').permit(:title, :body, :pro, :digest, :published, :tags)
+    temp = params.require('post').permit(:title, :body, :pro, :digest, :published, :tags, :slug)
     temp[:tags] = temp[:tags].split(TAG_SEPARATOR)
-    temp 
+    temp[:slug] = temp[:slug].parameterize
+    temp
   end
 
   private
