@@ -5,8 +5,9 @@ class Post < ActiveRecord::Base
   validates :digest, presence: true
   validates :admin_id, presence: true
   validates :tags, length: {maximum: 5}
+  validates :slug, presence: true, uniqueness: true
   extend FriendlyId
-  friendly_id :title
+  friendly_id :title, use: :slugged
 
   before_save :chomp_tags
 
