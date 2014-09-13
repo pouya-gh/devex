@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.search_query(query)
-    self.where("(title) LIKE '%#{query}%' OR '#{query}' = ANY (tags) AND published = true")
+    self.where("((title) LIKE '%#{query}%' OR '#{query}' = ANY (tags)) AND published = true")
   end
 
   def chomp_tags
