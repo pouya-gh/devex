@@ -13,18 +13,18 @@ Devex::Application.routes.draw do
   	end
   end
   scope "/admin", as: "admin" do
-    get '/sign_in', to: 'sessions#admin_new'
+    get '/sign_in', to: 'sessions#new'
     get '/sign_out', to: 'sessions#destroy'
     get '/request_token', to: 'admins#request_token', as: 'ask_for_token'
     post '/send_token', to: 'admins#send_password_token', as: 'send_token' 
     post '/resetpass', to: 'admins#reset_password', as: 'reset_pass' 
-    post '/sessions' ,to: 'sessions#admin_create'
   end
   resources :admins do
     member do
       get 'newpass',to: 'admins#new_password'
     end
     resources :posts, except: [:show, :index]
+    resources :sessions, only: [:new, :create, :destroy]
   end
   resources :posts, only: [:show, :index]
   resources :admins, only: [:show]
