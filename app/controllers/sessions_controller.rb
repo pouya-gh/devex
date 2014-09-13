@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to root_url(subdomain: false)
+    redirect_to root_url
   end
 
   private
