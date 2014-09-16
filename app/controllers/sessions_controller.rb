@@ -5,23 +5,15 @@ class SessionsController < ApplicationController
     
   end
 
-  def admin_new
-
-  end
-
   def create
-    user = User.find_by(email: params[:session][:email])
+    user = Admin.find_by(email: params[:session][:email]) ||
+           User.find_by(email: params[:session][:email])
     sign_in_person(user)
-  end
-
-  def admin_create
-    admin = Admin.find_by(email: params[:session][:email])
-    sign_in_person(admin)
   end
 
   def destroy
     sign_out
-    redirect_to root_url(subdomain: false)
+    redirect_to root_url
   end
 
   private

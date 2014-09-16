@@ -4,32 +4,22 @@ Devex::Application.routes.draw do
   get '/sign_up', to: 'users#new', as: 'sign_up'
   get '/sign_in', to: 'sessions#new', as: 'sign_in'
   get '/sign_out', to: 'sessions#destroy', as: 'sign_out'
-  get '/request_token', to: 'users#request_token', as: 'ask_for_token'
-  post '/send_token', to: 'users#send_password_token', as: 'send_token' 
-  post '/resetpass', to: 'users#reset_password', as: 'reset_pass'
-  resources :users do
-  	member do
-  		get 'newpass',to: 'users#new_password'
-  	end
-  end
   scope "/admin", as: "admin" do
-    get '/sign_in', to: 'sessions#admin_new'
-    get '/sign_out', to: 'sessions#destroy'
-    get '/request_token', to: 'admins#request_token', as: 'ask_for_token'
-    post '/send_token', to: 'admins#send_password_token', as: 'send_token' 
-    post '/resetpass', to: 'admins#reset_password', as: 'reset_pass' 
-    post '/sessions' ,to: 'sessions#admin_create'
+    get '/sign_in', to: 'sessions#new'
+    get '/sign_out', to: 'sessions#destroy' 
   end
   resources :admins do
     member do
       get 'newpass',to: 'admins#new_password'
     end
     resources :posts, except: [:show, :index]
+    resources :sessions, only: [:new, :create, :destroy]
   end
   resources :posts, only: [:show, :index]
   resources :admins, only: [:show]
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :password_resets, only: [:new, :create, :edit, :update]
   #resources :posts, only: [:new, :create, :destroy, :edit, :update]
   #resources :admins, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.

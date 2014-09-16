@@ -1,4 +1,0 @@
-<%= form_tag(admin_send_token_path, method: "post") do %>
-	<%= text_field_tag :email, nil, {placeholder: I18n.translate('user.email'), class: 'form-control'} %>
-	<%= submit_tag(I18n.translate('buttons.send'), {class: 'btn btn-primary'}) %>
-<% end %>

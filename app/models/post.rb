@@ -5,8 +5,9 @@ class Post < ActiveRecord::Base
   validates :digest, presence: true
   validates :admin_id, presence: true
   validates :tags, length: {maximum: 5}
+  validates :slug, presence: true, uniqueness: true
   extend FriendlyId
-  friendly_id :title
+  friendly_id :title, use: :slugged
 
   before_save :chomp_tags
 
@@ -19,7 +20,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.search_query(query)
-    self.where("(title) LIKE '%#{query}%' OR '#{query}' = ANY (tags) AND published = true")
+    self.where("((title) LIKE '%#{query}%' OR '#{query}' = ANY (tags)) AND published = true")
   end
 
   def chomp_tags
