@@ -1,6 +1,7 @@
 <%= form_for(@user, html: { role: 'form', class: 'form-horizontal' }) do |f| %>
   <div class="form_group <%= "has-error" if @user.errors.include? :first_name %>">
     <%= f.label :first_name, I18n.translate('user.first_name'), { class: 'col-md-2' } %>
+    </br>
     <%= f.text_field :first_name, { class: 'form-control', placeholder: I18n.translate('user.first_name') } %>
     <span class="help-block">
       <p><%= I18n.translate('format.user.first_name') %></p>
@@ -10,6 +11,7 @@
 
   <div class="form_group <%= "has-error" if @user.errors.include? :last_name %>">
     <%= f.label :last_name, I18n.translate('user.last_name'), { class: 'col-md-2' } %>
+    </br>
     <%= f.text_field :last_name, { class: 'form-control', placeholder: I18n.translate('user.last_name') } %>
     <span class="help-block">
       <p><%= I18n.translate('format.user.last_name') %></p>
@@ -19,18 +21,21 @@
 
   <div class="form_group <%= "has-error" if @user.errors.include? :email %>">
     <%= f.label :email, I18n.translate('user.email'), { class: 'col-md-2' } %>
+    </br>
     <%= f.text_field :email, { class: 'form-control', placeholder: I18n.translate('user.email') } %>
     <%= render partial: 'shared/form_errors', locals: { model: @user, key: :email } %>
   </div>
 
   <div class="form_group <%= "has-error" if @user.errors.include? :password %>">
     <%= f.label :password, I18n.translate('user.password'), { class: 'col-md-2' } %>
+    </br>
     <%= f.password_field :password, { class: 'form-control', placeholder: I18n.translate('user.password') } %>
     <%= render partial: 'shared/form_errors', locals: { model: @user, key: :password } %>
   </div>
 
   <div class="form_group <%= "has-error" if @user.errors.include? :password_confirmation %>">
     <%= f.label :password_confirmation, I18n.translate('user.password_confirmation'), { class: 'col-md-2' } %>
+    </br>
     <%= f.password_field :password_confirmation, { class: 'form-control', placeholder: I18n.translate('user.password_confirmation') } %>
     <%= render partial: 'shared/form_errors', locals: { model: @user, key: :password_confirmation } %>
   </div>
