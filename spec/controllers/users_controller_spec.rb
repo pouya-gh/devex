@@ -2,13 +2,26 @@ require 'spec_helper'
 
 describe UsersController do
   describe "GET #show" do
-    it "renders sign in template if not signed in"
-    it "renders :show template if signed in"
+    context "not signed in" do
+      it "renders sign in template"
+    end
+    
+    context "signed in" do
+      it "renders :show template if signed in"
+      it "assigns user to @user"
+    end
   end
 
   describe "GET #new" do
-    it "assigns a new user to @user"
-    it "renders :new template"
+    it "assigns a new user to @user" do
+      get :new
+      expect(assigns(:user)).to be_a_new(User)
+    end
+
+    it "renders :new template" do
+      get :new
+      expect(response).to render_template :new
+    end
   end
 
   describe "POST #create" do
