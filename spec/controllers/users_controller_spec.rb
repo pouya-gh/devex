@@ -41,14 +41,36 @@ describe UsersController do
 
   describe "POST #create" do
     context "valid attributes" do
-      it "adds a new user"
-      it "signes in the new user"
-      it "renders :show template"
+      it "adds a new user" do
+        expect {
+          post :create, user: attributes_for(:user)
+        }.to change(User, :count).by 1
+      end
+
+      it "signs in the new user" do
+        post :create, user: attributes_for(:user)
+        user = assigns(:user)
+        expect(cookies[:auth_token]).to eq(user.auth_token)
+      end
+
+      it "redirects to show" do
+        post :create, user: attributes_for(:user)
+        user = assigns(:user)
+        expect(response).to redirect_to(user_url(user))
+      end
     end
 
     context "invalid attributes" do
-      it "does not add a new user"
-      it "renders :new template"
+      it "does not add a new user" do
+        expect {
+          post :create, user: attributes_for(:user, email: nil)
+        }.not_to change(User, :count)
+      end
+
+      it "renders new template" do
+        post :create, user: attributes_for(:user, email: nil)
+        expect(response).to render_template(:new)
+      end
     end
   end
 end
