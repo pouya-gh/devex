@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016075540) do
+ActiveRecord::Schema.define(version: 20141016092128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20141016075540) do
     t.integer  "admin_id"
     t.string   "tags",       default: [],    array: true
     t.string   "slug"
+    t.string   "file_path"
   end
 
   add_index "posts", ["published"], name: "index_posts_on_published", using: :btree
