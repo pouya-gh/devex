@@ -17,12 +17,6 @@
     <%= render partial: 'shared/form_errors', locals: { model: @post, key: :digest } %>
   </div>
 
-  <div class="form-group <%= "has-error" if @post.errors.include? :body %>">
-    <%= f.label :body, I18n.translate('post.body') %>
-    <%= f.text_area :body, class: 'form-control', rows: 10 %>
-    <%= render partial: 'shared/form_errors', locals: { model: @post, key: :body } %>
-  </div>
-
   <div class="form-group <%= "has-error" if @post.errors.include? :tags %>">
     <%= f.label :tags, I18n.translate('post.tags') %>
     <%= f.text_field :tags, class: 'form-control' %>
