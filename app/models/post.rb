@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :admin
   validates :title, presence: true, uniqueness: true
-  #validates :body, presence: true
+  validates :file_path, presence: true
   validates :digest, presence: true
   validates :admin_id, presence: true
   validates :tags, length: {maximum: 5}
@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   before_save :chomp_tags
+  after_destroy :delete_file
 
   def subscribtion_needed?
     self.pro
@@ -28,5 +29,10 @@ class Post < ActiveRecord::Base
       self.tags[indx].gsub!(/^\s+/, "")
       self.tags[indx].gsub!(/\s+$/, "")
     end
+  end
+
+  def delete_file
+    File.delete(Rails.root.join('app','assets','images','posts', self.slug, self.file_path))
+    Dir.rmdir(Rails.root.join('app','assets','images','posts', self.slug))
   end
 end
