@@ -32,7 +32,6 @@ class Post < ActiveRecord::Base
   end
 
   def delete_file
-    File.delete(Rails.root.join('app','assets','images','posts', self.slug, self.file_path))
-    Dir.rmdir(Rails.root.join('app','assets','images','posts', self.slug))
+    File.delete(Rails.root.join('app','assets','images','posts', self.slug + ".jpg"))
   end
 end

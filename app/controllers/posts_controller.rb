@@ -32,21 +32,17 @@ class PostsController < ApplicationController
     end 
     @post = current_user.posts.new(post_params)
     begin
-      unless Dir.exists? Rails.root.join('app','assets','images','posts', @post.slug)
-        Dir.mkdir Rails.root.join('app','assets','images','posts', @post.slug)
-      end 
       picture = params[:post][:file_path]
-      file_path = Rails.root.join('app','assets','images','posts', @post.slug, picture.original_filename)
+      file_path = Rails.root.join('app','assets','images','posts', @post.slug + ".jpg")
+      @post.save!
       File.open(file_path, 'wb') do |file|
         file.write(picture.read)
       end
-      @post.save!
       flash[:success] = I18n.translate('post.submit.success')
       redirect_to current_user, layout: 'admin'
     rescue ActiveRecord::RecordInvalid
       flash.now[:danger] = I18n.translate('post.submit.fail')
       @post.tags = @post.tags.join(TAG_SEPARATOR)
-      Dir.rmdir Rails.root.join('app','assets','images','posts', @post.slug)
       render :new, layout: 'admin'
     end
   end
@@ -89,7 +85,7 @@ class PostsController < ApplicationController
     temp = params.require('post').permit(:title, :body, :pro, :digest, :published, :tags, :slug, :file_path)
     temp[:tags] = temp[:tags].split(TAG_SEPARATOR)
     temp[:slug] = temp[:slug].parameterize
-    temp[:file_path] = temp[:file_path].original_filename
+    temp[:file_path] = temp[:slug] + ".jpg"
     temp
   end
 

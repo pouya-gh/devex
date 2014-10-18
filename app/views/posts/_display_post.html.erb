@@ -3,7 +3,7 @@
 <p>ـــــــــــــــــــــــــــــــــ</p>
 <p><%= h(@post.digest).gsub(/\n/, '<br/>').html_safe %></p>
 <p>ـــــــــــــــــــــــــــــــــ</p>
-<p><%= image_tag("posts/#{@post.slug}/#{@post.file_path}") %></p>
+<p><%= image_tag("posts/#{@post.slug + ".jpg"}") %></p>
 <p>ـــــــــــــــــــــــــــــــــ</p>
 <p>تگ ها:</p>
 <ul class="tags">
