@@ -34,6 +34,9 @@ class PostsController < ApplicationController
     begin
       picture = params[:post][:file_path]
       file_path = Rails.root.join('app','assets','images','posts', @post.slug + ".jpg")
+      if picture == nil
+        raise ActiveRecord::RecordInvalid.new(@post)
+      end 
       @post.save!
       File.open(file_path, 'wb') do |file|
         file.write(picture.read)
