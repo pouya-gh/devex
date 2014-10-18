@@ -69,6 +69,13 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(slug: params[:id])
     @post.update(post_params)
+    picture = params[:post][:file_path]
+    file_path = Rails.root.join('app','assets','images','posts', @post.slug + ".jpg")
+    unless picture == nil
+      File.open(file_path, 'wb') do |f|
+        f.write(picture.read)
+      end
+    end
     flash[:success] = I18n.translate('post.update.success')
     redirect_to current_user, layout: 'admin'
   end
